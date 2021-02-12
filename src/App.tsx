@@ -1,15 +1,15 @@
 import React from 'react'
 import './globalCss/antdOverload.GLOBAL.css'
 import './globalCss/App.GLOBAL.css'
+import Dashboard from "./Components/Dashboard/Dashboard";
 import LoginPage from "./Components/Login/LoginPage/LoginPage";
-// import Test from "./Components/test";
 
 const App: React.FC = () => {
   return (
-    <>
-      <>
-      {/*<Test/>*/}
-    </>
+    <React.Fragment>
+      <Dashboard/>
+      {/*<LoginPage/>*/}
+    </React.Fragment>
   )
 }
 

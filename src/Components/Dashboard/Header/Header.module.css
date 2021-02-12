@@ -1,0 +1,32 @@
+.header {
+    border-bottom: 1px solid var(--grayF1);
+    height: 80px;
+    background: var(--headerBGColor);
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+}
+
+.menu {
+    margin-left: 24px;
+    border-bottom: none;
+    height: 100%;
+    font-size: 18px;
+}
+
+.menu li {
+    line-height: 78px;
+}
+
+.logout {
+    margin-left: auto;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './LoginPage.module.css'
-import logoIMG from './img/logo_big.png'
+import LOGO from '../../../sharedImgs/logo.svg'
 import {Col, ColProps,Row} from "antd";
 import LoginForm from "../LoginForm/LoginForm";
 
@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
         {...CONTAINER_LAYOUT}
       >
         <Row justify='center'>
-          <img src={logoIMG} alt="sibDev-logo"/>
+          <img className={styles.logo} src={LOGO} alt="sibDev-logo"/>
         </Row>
 
         <Row className={styles.titleBox} justify='center'>
