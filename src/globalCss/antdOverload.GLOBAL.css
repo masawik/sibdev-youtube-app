@@ -1,0 +1,39 @@
+.ant-form label {
+    font-size: 16px;
+}
+
+.label-muted label {
+    color: var(--text-muted);
+}
+
+.ant-form-item {
+    margin-bottom: 10px;
+}
+
+.ant-input,
+.ant-input-affix-wrapper {
+    border-radius: 5px;
+    padding: 7px 11px;
+    font-size: 20px;
+}
+
+.ant-input:focus,
+.ant-input-affix-wrapper-focused {
+    background-color: var(--primaryBackground);
+}
+
+.ant-input-affix-wrapper-focused .ant-input {
+    background-color: transparent;
+}
+
+.ant-input-affix-wrapper-focused .anticon svg {
+    fill: var(--primary);
+}
+
+.ant-btn {
+    box-sizing: content-box;
+    font-size: 20px;
+    height: 52px;
+    border-radius: 5px;
+    padding: 0 60px;
+}

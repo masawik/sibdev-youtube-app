@@ -1,9 +1,14 @@
 import React from 'react'
+import './globalCss/antdOverload.GLOBAL.css'
+import './globalCss/App.GLOBAL.css'
+import LoginPage from "./Components/Login/LoginPage/LoginPage";
+// import Test from "./Components/test";
 
 const App: React.FC = () => {
   return (
     <>
-      <h1>привет</h1>
+      <>
+      {/*<Test/>*/}
     </>
   )
 }
