@@ -2,13 +2,10 @@
     border-bottom: 1px solid var(--grayF1);
     height: 80px;
     background: var(--headerBGColor);
-    font-size: 18px;
-}
-
-.container {
-    max-width: 1040px;
-    margin: 0 auto;
-    height: 100%;
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
 }
 
 .logo {
@@ -28,5 +25,7 @@
 }
 
 .logout {
+    font-size: 18px;
     margin-left: auto;
+    padding: 0 20px;
 }

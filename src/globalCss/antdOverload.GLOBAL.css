@@ -30,10 +30,31 @@
     fill: var(--primary);
 }
 
+.ant-input-group-addon .ant-btn,
 .ant-btn {
     box-sizing: content-box;
     font-size: 20px;
     height: 52px;
     border-radius: 5px;
     padding: 0 60px;
+}
+
+.ant-input-group-addon .ant-btn {
+    height: 44px;
+}
+
+.ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button {
+    border-radius: 0 5px 5px 0;
+}
+
+.ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+    border-radius: 5px 0 0 5px;
+}
+
+.ant-layout {
+    background-color: var(--backgroundColor);
+}
+
+.ant-card-body {
+    padding: 0;
 }

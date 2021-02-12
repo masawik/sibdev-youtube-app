@@ -1,11 +1,13 @@
 :root {
     --text-muted: rgba(23, 23, 25, 0.3);
-    --backgroundColor: #E5E5E5;
+    --backgroundColor: #FAFAFA;
     --white: #fff;
     --headerBGColor: #fff;
 
-    --grayF1: F1F1F1;
+    --grayF1: #F1F1F1;
+    --grayBB: #BBBBBB;
 
+    --black: #000;
     --boxBorderColor: rgba(39, 39, 39, 0.2);
     --primaryBackground: rgba(197, 228, 249, 0.3);
     --primary: #1390E5;
@@ -21,3 +23,7 @@ h1 {
     padding: 0;
 }
 
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+}
