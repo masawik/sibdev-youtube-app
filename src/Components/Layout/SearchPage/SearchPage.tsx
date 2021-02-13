@@ -1,10 +1,12 @@
 import React, {CSSProperties, useState} from 'react'
-import {Col, Row} from "antd";
-import Search from "./Search/Search";
-import VideoList from "./VideoList/VideoList";
+import {Col, Row} from "antd"
+import Search from "./Search/Search"
+import VideoList from "./VideoList/VideoList"
+import {Switch, Route, useLocation } from "react-router-dom"
 
 const SearchPage: React.FC = () => {
-  const [isDisplayingResults, setIsDisplayingResults] = useState(true)
+  const {pathname} = useLocation()
+  const [isDisplayingResults, setIsDisplayingResults] = useState(pathname === '/dashboard/search')
 
   // алиас чтоб строки влезали в экран
   const IDR = isDisplayingResults
@@ -36,7 +38,9 @@ const SearchPage: React.FC = () => {
         </Col>
       </Row>
 
-      {/*<VideoList/>*/}
+      <Route path='/dashboard/search'>
+        <VideoList/>
+      </Route>
     </>
   )
 }

@@ -12,7 +12,7 @@ type TSearchProps = {
 const Search: React.FC<TSearchProps> = ({isDisplayingResults}) => {
   const [query, setQuery] = useState('')
   const [isFetching, setIsFetching] = useState(false)
-  const [isSavedMessageVisible, setIsSavedMessageVisible] = useState(true)
+  const [isSavedMessageVisible, setIsSavedMessageVisible] = useState(false)
 
   const $savedSuffixPopoverContent = (
     <div className={styles.popoverBox}>
