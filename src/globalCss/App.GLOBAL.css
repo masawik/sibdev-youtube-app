@@ -11,6 +11,7 @@
     --boxBorderColor: rgba(39, 39, 39, 0.2);
     --primaryBackground: rgba(197, 228, 249, 0.3);
     --primary: #1390E5;
+    --defaultTransitionFunction: cubic-bezier(0.2, 0, 0, 1);
 }
 
 body {
@@ -18,7 +19,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1, ul, li {
     margin: 0;
     padding: 0;
 }
@@ -27,3 +28,13 @@ h1 {
     max-width: 1040px;
     margin: 0 auto;
 }
+
+li {
+    list-style: none;
+}
+
+
+
+
+
+

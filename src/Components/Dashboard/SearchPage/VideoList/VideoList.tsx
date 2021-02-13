@@ -44,12 +44,12 @@ const VideoList: React.FC = () => {
 
       <Row>
         <Col>
-          {/*<VideoItemCard*/}
-          {/*  previewURL='https://i.ytimg.com/vi/mlc1_8BXNOc/maxresdefault.jpg'*/}
-          {/*  title='Как кормить кошку натуралкой | Перечень полезных для кош...'*/}
-          {/*  channelName='Ветеринария и Кормление соб...'*/}
-          {/*  views={768}*/}
-          {/*/>*/}
+          <VideoItemCard
+            previewURL='https://i.ytimg.com/vi/mlc1_8BXNOc/maxresdefault.jpg'
+            title='Как кормить кошку натуралкой | Перечень полезных для кош...'
+            channelName='Ветеринария и Кормление соб...'
+            views={768}
+          />
           <VideoItemList
             previewURL='https://i.ytimg.com/vi/mlc1_8BXNOc/maxresdefault.jpg'
             title='Как кормить кошку натуралкой | Перечень полезных для кошек продуктов и советы по составлению рациона'

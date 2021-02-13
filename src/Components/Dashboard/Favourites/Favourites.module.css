@@ -1,0 +1,52 @@
+.titleBox {
+    margin: 40px 0;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 40px;
+}
+
+.list {
+
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: var(--white);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    transition-property: background-color, opacity;
+    transition-duration: .3s;
+    transition-timing-function: var(--defaultTransitionFunction);
+}
+
+.buttons {
+    transition-property: opacity;
+    transition-duration: .3s;
+    transition-timing-function: var(--defaultTransitionFunction);
+    opacity: 0;
+}
+
+.buttons button {
+    font-size: 14px;
+    padding: 0 20px;
+    height: auto;
+}
+
+.listItem:not(:last-child) {
+    border-bottom: 1px solid var(--grayF1);
+}
+
+.listItem:hover,
+.listItem:focus {
+    background-color: var(--grayF1);
+}
+
+.listItem:hover .buttons,
+.listItem:focus .buttons {
+    opacity: 1;
+}

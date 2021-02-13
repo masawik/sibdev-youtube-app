@@ -1,5 +1,4 @@
 import React, {CSSProperties, useState} from 'react'
-import styles from './SearchPage.module.css'
 import {Col, Row} from "antd";
 import Search from "./Search/Search";
 import VideoList from "./VideoList/VideoList";

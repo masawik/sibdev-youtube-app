@@ -1,7 +1,13 @@
 import React from 'react'
 import {Card} from "antd"
 import styles from './VideoItemCard.module.css'
-import {TVideoItemProps} from "../sharedVideoListTypes";
+
+export type TVideoItemProps = {
+  previewURL: string,
+  title: string,
+  channelName: string,
+  views: number
+}
 
 const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewURL, views}) => {
   return (
