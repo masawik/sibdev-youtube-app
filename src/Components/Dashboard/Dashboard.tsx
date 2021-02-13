@@ -14,8 +14,8 @@ const Dashboard: React.FC = () => {
       <Content>
         <FavouritesModal/>
         <div className='container'>
-          {/*<SearchPage/>*/}
-          <Favourites/>
+          <SearchPage/>
+          {/*<Favourites/>*/}
         </div>
       </Content>
     </Layout>

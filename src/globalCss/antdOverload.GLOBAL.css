@@ -70,3 +70,7 @@
 .ant-modal-content {
     border-radius: 10px;
 }
+
+.ant-popover-inner {
+    border-radius: 5px;
+}

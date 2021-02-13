@@ -36,7 +36,7 @@ const SearchPage: React.FC = () => {
         </Col>
       </Row>
 
-      <VideoList/>
+      {/*<VideoList/>*/}
     </>
   )
 }
