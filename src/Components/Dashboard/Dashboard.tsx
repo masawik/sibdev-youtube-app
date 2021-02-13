@@ -3,13 +3,16 @@ import {Layout} from "antd"
 import Header from "./Header/Header";
 import SearchPage from "./SearchPage/SearchPage";
 import Favourites from "./Favourites/Favourites";
-const { Content} = Layout
+import FavouritesModal from "./Favourites/FavouritesModal/FavouritesModal";
+
+const {Content} = Layout
 
 const Dashboard: React.FC = () => {
   return (
     <Layout>
       <Header/>
       <Content>
+        <FavouritesModal/>
         <div className='container'>
           {/*<SearchPage/>*/}
           <Favourites/>

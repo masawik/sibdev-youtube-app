@@ -33,7 +33,9 @@ li {
     list-style: none;
 }
 
-
+.select {
+    border-radius: 5px;
+}
 
 
 
