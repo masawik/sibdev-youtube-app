@@ -3,6 +3,9 @@ import styles from './LoginPage.module.css'
 import LOGO from '../../../sharedImgs/logo.svg'
 import {Col, ColProps,Row} from "antd";
 import LoginForm from "../LoginForm/LoginForm";
+import {useSelector} from "react-redux";
+import {TRootState} from "../../../redux/rootReducer";
+import {Redirect} from "react-router-dom";
 
 const CONTAINER_LAYOUT: ColProps = {
   xxl: 7,
@@ -18,7 +21,9 @@ const FORM_BOX_LAYOUT: ColProps = {
 }
 
 const LoginPage: React.FC = () => {
+  const authToken = useSelector((state: TRootState) => state.user.token)
 
+  if (authToken) return <Redirect to={`/`} />
   return (
     <Row
       justify='center'

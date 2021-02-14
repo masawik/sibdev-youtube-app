@@ -1,13 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import './globalCss/antdOverload.GLOBAL.css'
 import './globalCss/App.GLOBAL.css'
 import Layout from "./Components/Layout/Layout"
 import {Switch, Route, Redirect} from "react-router-dom";
 import LoginPage from "./Components/Login/LoginPage/LoginPage"
 import {LOGIN} from "./constants";
+import {useDispatch} from "react-redux";
+import {onUserInit} from "./redux/user/userActions";
 
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(onUserInit())
+  }, [])
 
   return (
     <React.Fragment>
@@ -21,11 +27,7 @@ const App: React.FC = () => {
         </Route>
 
         <Route path='*'>
-          {
-            isLoggedIn
-            ? <Redirect to='/'/>
-            : <Redirect to={`/${LOGIN}`}/>
-          }
+          <Redirect to='/'/>
         </Route>
       </Switch>
     </React.Fragment>

@@ -1,4 +1,12 @@
-import {CLEAR_ERROR_MESSAGE, TUserActions, USER_LOGIN_ERROR, USER_LOGIN_START, USER_LOGIN_SUCCESS} from "./userTypes";
+import {
+  CLEAR_ERROR_MESSAGE,
+  TUserActions,
+  USER_LOGIN_ERROR,
+  USER_FETCHING_START,
+  USER_FETCHING_FINISH,
+  USER_SET_TOKEN
+} from "./userTypes";
+import {CLEAR_ALL_STATES} from "../shared/sharedTypes";
 
 const initialState = {
   isFetching: false as boolean,
@@ -10,10 +18,14 @@ type TUserReducerState = typeof initialState
 
 const userReducer = (state: TUserReducerState = initialState, action: TUserActions): TUserReducerState => {
   switch (action.type) {
-    case USER_LOGIN_START:
+    case CLEAR_ALL_STATES:
+      return initialState
+    case USER_FETCHING_START:
       return {...state, isFetching: true}
-    case USER_LOGIN_SUCCESS:
-      return {isFetching: false, errorMessage: null, token: action.payload.token}
+    case USER_FETCHING_FINISH:
+      return {...state, isFetching: false}
+    case USER_SET_TOKEN:
+      return {...state, token: action.payload.token}
     case USER_LOGIN_ERROR:
       return {...state, isFetching: false, errorMessage: action.errorMessage}
     case CLEAR_ERROR_MESSAGE:

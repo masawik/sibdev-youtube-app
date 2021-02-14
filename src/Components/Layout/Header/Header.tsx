@@ -5,9 +5,16 @@ import cn from 'classnames'
 import styles from './Header.module.css'
 import LOGO from '../../../sharedImgs/logo.svg'
 import {Link, useLocation} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {onUserLogout} from "../../../redux/user/userActions";
 
 const Header: React.FC = () => {
   const {pathname} = useLocation()
+  const dispatch = useDispatch()
+
+  const logout = () => {
+    dispatch(onUserLogout())
+  }
 
   return (
     <Layout.Header className={styles.header}>
@@ -28,7 +35,11 @@ const Header: React.FC = () => {
           </Menu.Item>
         </Menu>
 
-        <Button type='link' className={cn('ant-menu-item', styles.logout)}>
+        <Button
+          type='link'
+          onClick={logout}
+          className={cn('ant-menu-item', styles.logout)}
+        >
           Выйти
         </Button>
       </Row>
