@@ -3,7 +3,7 @@ import {Button, Layout, Row} from "antd"
 import {Menu} from "antd"
 import cn from 'classnames'
 import styles from './Header.module.css'
-import LOGO from '../../../sharedImgs/logo.svg'
+import LOGO from '../../sharedImgs/logo.svg'
 import {Link, useLocation} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {onUserLogout} from "../../../redux/user/userActions";

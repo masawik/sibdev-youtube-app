@@ -3,6 +3,7 @@
 }
 
 .count {
+    font-size: 16px;
     color: var(--text-muted);
     margin-left: 13px;
 }

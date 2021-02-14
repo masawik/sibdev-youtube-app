@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card} from "antd"
+import {Card, Col} from "antd"
 import styles from './VideoItemCard.module.css'
 
 export type TVideoItemProps = {
@@ -10,28 +10,31 @@ export type TVideoItemProps = {
 }
 
 const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewURL, views}) => {
+  if (title.length >= 60) title = title.substr(0, 57) + '...'
+  //todo убрать отсюда Col
   return (
-    <Card
-      hoverable
-      style={{ width: 245 }}
-      bodyStyle={{backgroundColor: '#FAFAFA'}}
-      bordered={false}
-      cover={<img alt="example" src={previewURL} />}
-    >
-      <div className={styles.body}>
-        <div className={styles.title}>
-          {title}
-        </div>
+    <Col>
+      <Card
+        hoverable
+        className={styles.card}
+        bordered={false}
+        cover={<img alt="example" src={previewURL}/>}
+      >
+        <div className={styles.body}>
+          <div className={styles.title}>
+            {title}
+          </div>
 
-        <div className={styles.channelName}>
-          {channelName}
-        </div>
+          <div className={styles.channelName}>
+            {channelName}
+          </div>
 
-        <div className={styles.views}>
-          {views}тыс. просмотров
+          <div className={styles.views}>
+            {views}тыс. просмотров
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </Col>
   )
 }
 

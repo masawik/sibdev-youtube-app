@@ -11,8 +11,7 @@ import {TRootState} from "../../redux/rootReducer";
 const {Content} = AntdLayout
 
 const Layout: React.FC = () => {
-  const authToken = useSelector((state: TRootState) => state.user.token)
-
+   const authToken = useSelector((state: TRootState) => state.user.token)
   if (!authToken) return <Redirect to={`/${LOGIN}`} />
   return (
     <AntdLayout>

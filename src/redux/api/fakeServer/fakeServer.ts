@@ -32,7 +32,7 @@ function createError(code: EUserApiErrors, message: string): TResponseError {
 }
 
 
-const lag = utils.randInt(1000, 3000)
+const lag = utils.randInt(0,0)
 
 export const fakeServer = {
   login: ({login, password}: TUserLoginData): Promise<TResponse<string>> =>

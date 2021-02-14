@@ -3,10 +3,13 @@ import axios from "axios"
 const API_KEY = 'AIzaSyD4oqFUtrWe9IFK0dnrOrhLTGwYeVjt2eM'
 
 const instance = axios.create({
-  baseURL: 'https://youtube.googleapis.com/youtube/v3/',
+  // baseURL: 'https://youtube.googleapis.com/youtube/v3/',
+  baseURL: 'http://127.0.0.1:5555/',
 })
 
-type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount'
+
+
+export type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount'
 
 type TYoutubeSearchAPI = {
   search: (query: string, maxResults?: number, order?: TSearchOrder) => Promise<TSearchResponse>
@@ -18,7 +21,7 @@ type TVideoItemThumbnail = {
   height: number
 }
 
-type TVideoItem = {
+export type TVideoItem = {
   kind: string,
   etag: string,
   id: {
@@ -34,11 +37,11 @@ type TVideoItem = {
       default: TVideoItemThumbnail,
       medium: TVideoItemThumbnail,
       high: TVideoItemThumbnail
-    }
+    },
+    channelTitle: string,
+    liveBroadcastContent: string,
+    publishTime: string
   },
-  channelTitle: string,
-  liveBroadcastContent: string,
-  publishTime: string
 }
 
 type TSearchResponse = {

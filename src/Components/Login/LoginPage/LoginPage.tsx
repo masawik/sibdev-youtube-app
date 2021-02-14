@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './LoginPage.module.css'
-import LOGO from '../../../sharedImgs/logo.svg'
+import LOGO from '../../sharedImgs/logo.svg'
 import {Col, ColProps,Row} from "antd";
 import LoginForm from "../LoginForm/LoginForm";
 import {useSelector} from "react-redux";

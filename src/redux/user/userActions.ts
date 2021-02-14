@@ -27,14 +27,9 @@ const userLoginError = (errorMessage: string): TUserLoginError => ({
 
 export const onClearErrorMessage: ActionCreator<TUserClearErrorMessage> = () => ({type: CLEAR_ERROR_MESSAGE})
 
-export const onUserInit = (): TUserThunk => async dispatch => {
+export const onUserInit = (): TUserThunk => dispatch => {
   const token = localStorageUtils.getToken()
-  if (!token) return
-  
-  dispatch(userFetchingStart())
-  const result = await userAPI.isTokenValid(token)
-  if (result.success && result.data) dispatch(userSetToken(token))
-  dispatch(userFetchingFinish())
+  if (token) dispatch(userSetToken(token))
 }
 
 export const onUserLogin = (loginData: TUserLoginData): TUserThunk => async dispatch => {
