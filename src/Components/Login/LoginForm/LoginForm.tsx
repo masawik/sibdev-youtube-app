@@ -1,6 +1,9 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import styles from './LoginForm.module.css'
-import {Button, Form, Input, Row} from "antd";
+import {Button, Form, Input, Row, message} from "antd";
+import {useDispatch, useSelector} from "react-redux";
+import {TRootState} from "../../../redux/rootReducer";
+import {onClearErrorMessage, onLogin} from "../../../redux/user/userActions";
 
 const LOGIN = 'LOGIN'
 const PASSWORD = 'PASSWORD'
@@ -16,12 +19,19 @@ const INPUT_VALIDATION_RULES = [
 ]
 
 const LoginForm: React.FC = () => {
-  // todo получать isFetching из redux
-  const [isFetching, setIsFetching] = useState(false)
+  const dispatch = useDispatch()
+  const isFetching = useSelector((state: TRootState) => state.user.isFetching)
+  const errorMessage = useSelector((state: TRootState) => state.user.errorMessage)
   const [form] = Form.useForm<TLoginForm>()
 
-  const onFinish = () => {
-    setIsFetching(prevState => !prevState)
+  useEffect(() => {
+    if (!errorMessage) return
+    message.error(errorMessage)
+    dispatch(onClearErrorMessage())
+  }, [dispatch, errorMessage])
+
+  const onFinish = (values: TLoginForm) => {
+    dispatch(onLogin({login: values[LOGIN], password: values[PASSWORD]}))
   }
 
   return (

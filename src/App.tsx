@@ -7,7 +7,7 @@ import LoginPage from "./Components/Login/LoginPage/LoginPage"
 import {LOGIN} from "./constants";
 
 const App: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <React.Fragment>
