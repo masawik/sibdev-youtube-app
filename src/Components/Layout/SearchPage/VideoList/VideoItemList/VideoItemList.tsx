@@ -4,10 +4,9 @@ import {TVideoItemProps} from "../VideoItemCard/VideoItemCard";
 import cn from "classnames";
 
 const VideoItemList: React.FC<TVideoItemProps> = ({views, channelName, title, previewURL}) => {
-  //todo генерировать alt для изображений
   return (
     <div className={cn(styles.card, 'ant-card-hoverable')}>
-      <img className={styles.preview} src={previewURL} alt=""/>
+      <img className={styles.preview} src={previewURL} alt={title}/>
 
       <div className={styles.body}>
         <div className={styles.title}>

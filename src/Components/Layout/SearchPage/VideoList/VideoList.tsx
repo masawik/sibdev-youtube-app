@@ -19,13 +19,15 @@ const VideoList: React.FC = () => {
   const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
     return (
-      <VideoItemComponent
-        key={videoItem.id.videoId}
-        title={videoItem.snippet.title}
-        views={787}
-        channelName={videoItem.snippet.channelTitle}
-        previewURL={videoItem.snippet.thumbnails.medium.url}
-      />
+      <Col>
+        <VideoItemComponent
+          key={videoItem.id.videoId}
+          title={videoItem.snippet.title}
+          views={787}
+          channelName={videoItem.snippet.channelTitle}
+          previewURL={videoItem.snippet.thumbnails.medium.url}
+        />
+      </Col>
     )
   })
 
@@ -67,11 +69,7 @@ const VideoList: React.FC = () => {
           </Button>
         </Col>
       </Row>
-      {
-        viewMode === "list"
-          ? <Space direction={"vertical"} size={32}>{$videoList}</Space>
-          : <Row gutter={[20, 28]}>{$videoList}</Row>
-      }
+      <Row gutter={[20, 32]}>{$videoList}</Row>
     </>
   )
 }

@@ -13,7 +13,6 @@ const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewUR
   if (title.length >= 60) title = title.substr(0, 57) + '...'
   //todo убрать отсюда Col
   return (
-    <Col>
       <Card
         hoverable
         className={styles.card}
@@ -34,7 +33,6 @@ const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewUR
           </div>
         </div>
       </Card>
-    </Col>
   )
 }
 

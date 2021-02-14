@@ -1,6 +1,6 @@
 .card {
     display: flex;
-    max-width: 690px;
+    width: 690px;
     cursor: pointer;
 }
 
