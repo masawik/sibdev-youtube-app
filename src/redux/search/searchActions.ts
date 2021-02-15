@@ -27,6 +27,7 @@ export const onSearch = (query: string, maxResults?: number, order?: TSearchOrde
   dispatch(searchFetchingStart())
   dispatch(searchSetQuery(query))
   const result = await youtubeSearchAPI.search(query, maxResults, order)
+  if (result.error) return false
   dispatch(searchSetTotalResults(result.pageInfo.totalResults))
   dispatch(searchSetVideos(result.items))
   dispatch(searchSetReadyToShow())

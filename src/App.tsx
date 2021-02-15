@@ -7,9 +7,11 @@ import LoginPage from "./Components/Login/LoginPage/LoginPage"
 import {LOGIN} from "./constants";
 import {useDispatch} from "react-redux";
 import {onUserInit} from "./redux/user/userActions";
+import {useAlert} from "./hooks/useAlert";
 
 const App: React.FC = () => {
   const dispatch = useDispatch()
+  useAlert()
 
   useEffect(() => {
     dispatch(onUserInit())

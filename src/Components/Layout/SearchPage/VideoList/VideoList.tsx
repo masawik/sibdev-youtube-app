@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Button, Col, Row, Space} from "antd";
+import React, {useEffect, useState} from 'react'
+import {Button, Col, Row} from "antd";
 import cn from "classnames";
 import styles from './VideoList.module.css'
 import {AppstoreOutlined, UnorderedListOutlined} from "@ant-design/icons/lib";
@@ -7,15 +7,20 @@ import VideoItemCard from "./VideoItemCard/VideoItemCard";
 import VideoItemList from "./VideoItemList/VideoItemList";
 import {useSelector} from "react-redux";
 import {TRootState} from "../../../../redux/rootReducer";
+import {useLastViewMode} from "../../../../hooks/useVideoListLastViewMode";
 
 const VideoList: React.FC = () => {
-  //todo сохранять предпочтительный  вид отображения в ls
-  const [viewMode, setViewMode] = useState<'list' | 'card'>('card')
+  const lastViewMode = useLastViewMode()
+  const [viewMode, setViewMode] = useState<'list' | 'card'>(lastViewMode || 'card')
   const videos = useSelector((state: TRootState) => state.search.videos)
   const query = useSelector((state: TRootState) => state.search.query)
   const totalResults = useSelector((state: TRootState) => state.search.totalResults)
 
-  //todo добавить количество просмотров
+  useEffect(() => {
+    localStorage.setItem('viewMode', viewMode)
+  }, [viewMode])
+
+  //todo добавить статистику
   const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
     return (
@@ -23,7 +28,7 @@ const VideoList: React.FC = () => {
         <VideoItemComponent
           key={videoItem.id.videoId}
           title={videoItem.snippet.title}
-          views={787}
+          views={786}
           channelName={videoItem.snippet.channelTitle}
           previewURL={videoItem.snippet.thumbnails.medium.url}
         />

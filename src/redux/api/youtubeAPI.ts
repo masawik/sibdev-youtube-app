@@ -7,13 +7,7 @@ const instance = axios.create({
   baseURL: 'http://127.0.0.1:5555/',
 })
 
-
-
 export type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount'
-
-type TYoutubeSearchAPI = {
-  search: (query: string, maxResults?: number, order?: TSearchOrder) => Promise<TSearchResponse>
-}
 
 type TVideoItemThumbnail = {
   url: string,
@@ -44,7 +38,8 @@ export type TVideoItem = {
   },
 }
 
-type TSearchResponse = {
+type TYoutubeSearchResponse = {
+  error?: false,
   kind: string,
   etag: string,
   nextPageToken: string,
@@ -56,6 +51,25 @@ type TSearchResponse = {
   items: TVideoItem[]
 }
 
+type TYoutubeErrorItem = {
+  message: string,
+  domain: string,
+  reason: string
+}
+
+type TYoutubeErrorResponse = {
+  error: {
+    code: number,
+    message: string,
+    errors: TYoutubeErrorItem[]
+  }
+}
+
+type TYoutubeSearchAPI = {
+  search: (query: string, maxResults?: number, order?: TSearchOrder) => Promise<TYoutubeSearchResponse | TYoutubeErrorResponse>
+}
+
+//todo обработать ошибку quotaExceeded
 export const youtubeSearchAPI: TYoutubeSearchAPI = {
   search: (query, maxResults = 5, order = 'relevance') => {
     query = encodeURIComponent(query)

@@ -14,7 +14,8 @@ const initialState = {
   query: null as string | null,
   totalResults: null as number | null,
   videos: null as null | TVideoItem[],
-  isReadyToShow: false as boolean
+  isReadyToShow: false as boolean,
+  errorMessage: null as null | string
 }
 
 type TSearchState = typeof initialState
