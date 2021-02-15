@@ -11,6 +11,7 @@ import {
 import {userAPI} from "../api/userAPI";
 import {localStorageUtils} from "../localStorageUtils";
 import {onAlert, sharedClearAllStates} from "../shared/sharedActions";
+import {onFavouritesListLoad} from "../favourites/favouritesActions";
 
 const userFetchingStart = (): TUserFetchingStart => ({type: USER_FETCHING_START})
 const userFetchingFinish = (): TUserFetchingFinish => ({type: USER_FETCHING_FINISH})
@@ -18,7 +19,10 @@ const userSetToken = (token: string): TUserSetToken => ({type: USER_SET_TOKEN, p
 
 export const onUserInit = (): TUserThunk => dispatch => {
   const token = localStorageUtils.getToken()
-  if (token) dispatch(userSetToken(token))
+  if (token) {
+    dispatch(userSetToken(token))
+    dispatch(onFavouritesListLoad())
+  }
 }
 
 export const onUserLogin = (loginData: TUserLoginData): TUserThunk => async dispatch => {

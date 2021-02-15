@@ -24,9 +24,8 @@ const VideoList: React.FC = () => {
   const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
     return (
-      <Col>
+      <Col key={videoItem.id.videoId}>
         <VideoItemComponent
-          key={videoItem.id.videoId}
           title={videoItem.snippet.title}
           views={786}
           channelName={videoItem.snippet.channelTitle}

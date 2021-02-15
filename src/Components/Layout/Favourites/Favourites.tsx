@@ -1,12 +1,25 @@
 import React from 'react'
-import {Button, Row} from "antd"
+import {Row} from "antd"
 import styles from './Favourites.module.css'
-
+import {useDispatch, useSelector} from "react-redux";
+import {TRootState} from "../../../redux/rootReducer";
+import FavouritesItem from "./FavouritesItem/FavouritesItem";
+import {onFavouritesListDeleteRecord} from "../../../redux/favourites/favouritesActions";
+import {onFavouritesModalOpenEdit} from "../../../redux/favouritesModal/favouritesModalActions";
+//todo добавить состояние загрузки списка
+//todo добавить заглушку при пустом списке
 const Favourites: React.FC = () => {
-  const data = [
-    'Видео1',
-    'Видео2',
-  ]
+  const dispatch = useDispatch()
+  const list = useSelector((state: TRootState) => state.favourites.items)
+  const $list = list.map((i) => (
+    <FavouritesItem
+      key={i.id}
+      onEdit={() => dispatch(onFavouritesModalOpenEdit(i.id))}
+      onDelete={() => dispatch(onFavouritesListDeleteRecord(i.id))}
+      name={i.name}
+    />
+  ))
+
   return (
     <>
       <Row className={styles.titleBox}>
@@ -14,22 +27,7 @@ const Favourites: React.FC = () => {
       </Row>
 
       <ul className={styles.list}>
-        <li className={styles.listItem}>
-          видео 1
-          <span className={styles.buttons}>
-            <Button
-              type='link'
-            >
-            Изменить
-          </Button>
-          <Button
-            type='link'
-            danger
-          >
-            Удалить
-          </Button>
-          </span>
-        </li>
+        {$list}
       </ul>
     </>
   )

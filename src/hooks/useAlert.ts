@@ -9,7 +9,6 @@ export const useAlert = () => {
   const duration = useSelector((state: TRootState) => state.alert.duration)
 
   useEffect(() => {
-    console.log('triggered')
     if (!type || !duration || !message) return
     alert[type](message, duration)
   }, [duration, message, type])

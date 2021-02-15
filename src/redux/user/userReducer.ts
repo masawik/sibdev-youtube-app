@@ -5,6 +5,7 @@ import {
   USER_SET_TOKEN
 } from "./userTypes";
 import {CLEAR_ALL_STATES} from "../shared/sharedTypes";
+import {Reducer} from "redux";
 
 const initialState = {
   isFetching: false as boolean,
@@ -13,7 +14,7 @@ const initialState = {
 
 type TUserReducerState = typeof initialState
 
-const userReducer = (state: TUserReducerState = initialState, action: TUserActions): TUserReducerState => {
+const userReducer: Reducer<TUserReducerState, TUserActions> = (state = initialState, action): TUserReducerState => {
   switch (action.type) {
     case CLEAR_ALL_STATES:
       return initialState

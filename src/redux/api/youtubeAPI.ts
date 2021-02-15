@@ -7,7 +7,7 @@ const instance = axios.create({
   baseURL: 'http://127.0.0.1:5555/',
 })
 
-export type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount'
+export type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount' | 'any'
 
 type TVideoItemThumbnail = {
   url: string,

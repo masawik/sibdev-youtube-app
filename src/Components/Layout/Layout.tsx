@@ -3,7 +3,7 @@ import {Layout as AntdLayout} from "antd"
 import Header from "./Header/Header";
 import SearchPage from "./SearchPage/SearchPage";
 import Favourites from "./Favourites/Favourites";
-import FavouritesModal from "./Favourites/FavouritesModal/FavouritesModal";
+import FavouritesModal from "./FavouritesModal/FavouritesModal";
 import {Switch, Route, Redirect } from "react-router-dom";
 import {FAVOURITES, LOGIN, SEARCH} from "../../constants";
 import {useSelector} from "react-redux";

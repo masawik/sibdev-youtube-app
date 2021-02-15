@@ -5,6 +5,7 @@ export enum EUserApiErrors {
   success = 0,
   userNotExist = 1,
   wrongPassword = 2,
+  tokenInvalid = 3
 }
 
 export type TUserResponseSuccess<T> = {
@@ -17,19 +18,15 @@ export type TUserResponseError = {
   message: string
 }
 
-export type TUserResponse<T> = TUserResponseSuccess<T> | TUserResponseError
+export type TResponse<T> = TUserResponseSuccess<T> | TUserResponseError
 
 
 type TUserAPI = {
-  login: (loginData: TUserLoginData) => Promise<TUserResponse<string>>
+  login: (loginData: TUserLoginData) => Promise<TResponse<string>>
 }
 
 export const userAPI: TUserAPI = {
   login: (loginData) => {
     return fakeServer.login(loginData)
   },
-
-  // isTokenValid: (token: string) => {
-  //   return fakeServer.isTokenValid(token)
-  // }
 }
