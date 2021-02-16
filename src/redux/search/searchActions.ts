@@ -23,6 +23,10 @@ const searchSetVideos = (videos: IVideoItem[]): TSearchSetVideos => ({type: SEAR
 const searchSetQuery = (query: string): TSearchSetQuery => ({type: SEARCH_SET_QUERY, payload: {query}})
 const searchSetTotalResults = (totalResults: number): TSearchSetTotalResults => ({type: SEARCH_SET_TOTAL_RESULTS, payload: {totalResults}})
 
+
+
+
+
 export const onSearch = (query: string, maxResults?: number, order?: TSearchOrder): TSearchThunk => async dispatch => {
   function error(error: string) {
     dispatch(searchFetchingFinish())
@@ -33,13 +37,16 @@ export const onSearch = (query: string, maxResults?: number, order?: TSearchOrde
   dispatch(searchSetQuery(query))
   const videosResult = await youtubeSearchAPI.search(query, maxResults, order)
   if (videosResult.error) return error(videosResult.error.message)
-  console.log(videosResult.items)
+
   const videoIds = videosResult.items.map(i => i.id.videoId)
+
   const videosStatResult = await youtubeSearchAPI.getVideoStat(videoIds)
   if (videosStatResult.error) return error(videosStatResult.error.message)
 
-  console.log(videosStatResult.items)
   const resultVideoList: IVideoItem[] = videosResult.items.map(i => {
+    i.snippet.title = i.snippet.title.replaceAll('&amp;', '&')
+    i.snippet.channelTitle = i.snippet.channelTitle.replaceAll('&amp;', '&')
+
     const id = i.id.videoId
     const [videoStat] = videosStatResult.items.filter(ivs => ivs.id === id)
     return {...i, views: Number(videoStat.statistics.viewCount)}
