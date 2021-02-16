@@ -1,17 +1,17 @@
 import React from 'react'
-import {Row} from "antd"
+import {Row, Spin} from "antd"
 import styles from './Favourites.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {TRootState} from "../../../redux/rootReducer";
 import FavouritesItem from "./FavouritesItem/FavouritesItem";
 import {onFavouritesListDeleteRecord} from "../../../redux/favourites/favouritesActions";
 import {onFavouritesModalOpenEdit} from "../../../redux/favouritesModal/favouritesModalActions";
-//todo добавить состояние загрузки списка
-//todo добавить заглушку при пустом списке
 //todo выполнять запрос при клике на запись
+
 const Favourites: React.FC = () => {
   const dispatch = useDispatch()
   const list = useSelector((state: TRootState) => state.favourites.items)
+  const isFetching = useSelector((state: TRootState) => state.favourites.isFetching)
   const $list = list.map((i) => (
     <FavouritesItem
       key={i.id}
@@ -27,9 +27,12 @@ const Favourites: React.FC = () => {
         <h1 className={styles.title}>Избранное</h1>
       </Row>
 
-      <ul className={styles.list}>
-        {$list}
-      </ul>
+      <Spin spinning={isFetching} tip="Loading...">
+        <ul className={styles.list}>
+          {list.length === 0 ? <Row justify='center'>список пуст :(</Row> : null}
+          {$list}
+        </ul>
+      </Spin>
     </>
   )
 }
