@@ -17,13 +17,13 @@ type TFormFields = {
 
 const FavouritesModal: React.FC = () => {
   const dispatch = useDispatch()
-  const [formInstance] = useForm<TFormFields>()
+  const [form] = useForm<TFormFields>()
   const {query, isVisible, maxCount, isFetching, name, sort, recordId} = useSelector((state: TRootState) => state.favouritesModal)
   const [maxCountValue, setMaxCountValue] = useState<number>(12)
 
   useEffect(() => {
-    formInstance.resetFields()
-  }, [formInstance, isVisible])
+    if (isVisible) form.resetFields()
+  }, [form, isVisible])
 
   useEffect(() => {
     setMaxCountValue(maxCount)
@@ -66,6 +66,7 @@ const FavouritesModal: React.FC = () => {
       centered={true}
       closable={false}
       footer={null}
+      getContainer={false}
     >
       <Row className={styles.titleBox} justify='center'>
         <h1 className={styles.title}>
@@ -80,7 +81,7 @@ const FavouritesModal: React.FC = () => {
       <Form
         layout='vertical'
         onFinish={onSubmit}
-        form={formInstance}
+        form={form}
         initialValues={formInitialValues}
       >
         <Form.Item

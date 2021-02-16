@@ -8,6 +8,7 @@ import {onFavouritesListDeleteRecord} from "../../../redux/favourites/favourites
 import {onFavouritesModalOpenEdit} from "../../../redux/favouritesModal/favouritesModalActions";
 //todo добавить состояние загрузки списка
 //todo добавить заглушку при пустом списке
+//todo выполнять запрос при клике на запись
 const Favourites: React.FC = () => {
   const dispatch = useDispatch()
   const list = useSelector((state: TRootState) => state.favourites.items)
