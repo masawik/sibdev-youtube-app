@@ -57,7 +57,7 @@ const FavouritesModal: React.FC = () => {
     maxCount: maxCount || 12,
     name: name || "",
     query: query || "",
-    sort: sort || "any"
+    sort: sort || ""
   }
   return (
     <Modal
@@ -113,7 +113,7 @@ const FavouritesModal: React.FC = () => {
             className='select'
             disabled={isFetching}
           >
-            <Select.Option className={styles.firstSelectOption} value='any'>Без сортировки</Select.Option>
+            <Select.Option className={styles.firstSelectOption} value=''>Без сортировки</Select.Option>
             {$sortOptions}
           </Select>
         </Form.Item>

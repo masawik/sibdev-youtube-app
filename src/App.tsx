@@ -12,9 +12,7 @@ import {useAlert} from "./hooks/useAlert";
 const App: React.FC = () => {
   const dispatch = useDispatch()
   useAlert()
-  //todo обернуть функции в компонентах в useCallback
   //todo добавить анимации по возможности
-  //todo убрать ошибки из консоли
   //todo обработать ошибки unauthorized
   useEffect(() => {
     dispatch(onUserInit())

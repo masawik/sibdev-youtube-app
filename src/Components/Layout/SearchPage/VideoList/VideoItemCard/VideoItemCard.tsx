@@ -6,7 +6,7 @@ export type TVideoItemProps = {
   previewURL: string,
   title: string,
   channelName: string,
-  views: number
+  views: string
 }
 
 const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewURL, views}) => {
@@ -28,7 +28,7 @@ const VideoItemCard: React.FC<TVideoItemProps> = ({title, channelName, previewUR
           </div>
 
           <div className={styles.views}>
-            {views} тыс. просмотров
+            {views} просмотров
           </div>
         </div>
       </Card>

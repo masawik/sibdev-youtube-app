@@ -6,14 +6,14 @@ import {
   SEARCH_SET_VIDEOS,
   TSearchActions
 } from "./searchTypes";
-import {TVideoItem} from "../api/youtubeAPI";
+import {IVideoItem} from "../api/youtubeAPI";
 import {CLEAR_ALL_STATES} from "../shared/sharedTypes";
 
 const initialState = {
   isFetching: false as boolean,
   query: null as string | null,
   totalResults: null as number | null,
-  videos: null as null | TVideoItem[],
+  videos: null as null | IVideoItem[],
   isReadyToShow: false as boolean,
   errorMessage: null as null | string
 }

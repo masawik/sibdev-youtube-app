@@ -1,3 +1,9 @@
+.card {
+    width: 245px;
+    min-height: 226px;
+    background-color: var(--backgroundColor);
+}
+
 .body {
     height: 100%;
     padding: 5px;
@@ -13,10 +19,4 @@
 .channelName,
 .views {
     color: var(--text-muted);
-}
-
-.card {
-    width: 245px;
-    height: 226px;
-    background-color: var(--backgroundColor);
 }

@@ -19,7 +19,7 @@ const VideoItemList: React.FC<TVideoItemProps> = ({views, channelName, title, pr
           </div>
 
           <div className={styles.views}>
-            {views} тыс. просмотров
+            {views} просмотров
           </div>
         </div>
       </div>

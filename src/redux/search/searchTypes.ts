@@ -1,4 +1,4 @@
-import {TVideoItem} from "../api/youtubeAPI";
+import {IVideoItem} from "../api/youtubeAPI";
 import {ThunkAction} from "redux-thunk";
 import {TRootState} from "../rootReducer";
 import {TSharedActions} from "../shared/sharedTypes";
@@ -15,7 +15,7 @@ export type TSearchFetchingFinish = { type: typeof SEARCH_FETCHING_FINISH }
 export type TSearchSetReadyToShow = { type: typeof SEARCH_SET_READY_TO_SHOW }
 export type TSearchSetQuery = { type: typeof SEARCH_SET_QUERY, payload: { query: string } }
 export type TSearchSetTotalResults = { type: typeof SEARCH_SET_TOTAL_RESULTS, payload: { totalResults: number } }
-export type TSearchSetVideos = { type: typeof SEARCH_SET_VIDEOS, payload: { videos: TVideoItem[] } }
+export type TSearchSetVideos = { type: typeof SEARCH_SET_VIDEOS, payload: { videos: IVideoItem[] } }
 
 export type TSearchActions =
   TSearchFetchingStart

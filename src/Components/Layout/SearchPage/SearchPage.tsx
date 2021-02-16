@@ -6,16 +6,19 @@ import {useQuery} from "../../../hooks/useQuery";
 import {useDispatch, useSelector} from "react-redux";
 import {TRootState} from "../../../redux/rootReducer";
 import {onSearch} from "../../../redux/search/searchActions";
+import {TSearchOrder} from "../../../redux/api/youtubeAPI";
 
 const SearchPage: React.FC = () => {
   const dispatch = useDispatch()
   const searchParams = useQuery()
   const currentQuery = searchParams.get('q')
+  const sort = (searchParams.get('sort') as TSearchOrder) || ''
+  const maxCount: number = Number(searchParams.get('maxCount')) || 12
   const isReadyToShow = useSelector((state: TRootState) => state.search.isReadyToShow)
 
   useEffect(() => {
     if (!currentQuery) return
-    dispatch(onSearch(currentQuery, 12))
+    dispatch(onSearch(currentQuery, maxCount, sort))
   }, [currentQuery, dispatch])
 
   // алиас чтоб строки влезали в экран

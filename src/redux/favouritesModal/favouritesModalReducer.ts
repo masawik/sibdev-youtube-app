@@ -15,7 +15,7 @@ const initialState = {
   recordId: null as null | string,
   query: null as null | string,
   name: null as null | string,
-  sort: 'any' as TSearchOrder,
+  sort: '' as TSearchOrder,
   maxCount: 12 as number,
 }
 

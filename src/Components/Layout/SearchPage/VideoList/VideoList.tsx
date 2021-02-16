@@ -20,15 +20,19 @@ const VideoList: React.FC = () => {
     localStorage.setItem('viewMode', viewMode)
   }, [viewMode])
 
-  //todo добавить статистику
   //todo добавить анимацию переключения между режимами отображения
+  //todo включать видео при клике
   const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
+    const views = videoItem.views
+    let viewsStr = String(views)
+    if (views >= 1000 && views < 1000000) viewsStr = viewsStr.substr(0, viewsStr.length - 3) + ' тыс.'
+    if (views >= 1000000) viewsStr = viewsStr.substr(0, viewsStr.length - 6) + ' млн.'
     return (
       <Col key={videoItem.id.videoId}>
         <VideoItemComponent
           title={videoItem.snippet.title}
-          views={786}
+          views={viewsStr}
           channelName={videoItem.snippet.channelTitle}
           previewURL={videoItem.snippet.thumbnails.medium.url}
         />
