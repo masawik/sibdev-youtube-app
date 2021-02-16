@@ -6,12 +6,11 @@ import Favourites from "./Favourites/Favourites";
 import FavouritesModal from "./FavouritesModal/FavouritesModal";
 import {Switch, Route, Redirect } from "react-router-dom";
 import {FAVOURITES, LOGIN, SEARCH} from "../../constants";
-import {useSelector} from "react-redux";
-import {TRootState} from "../../redux/rootReducer";
+import {useToken} from "../../hooks/useToken";
 const {Content} = AntdLayout
 
 const Layout: React.FC = () => {
-   const authToken = useSelector((state: TRootState) => state.user.token)
+   const authToken = useToken()
   if (!authToken) return <Redirect to={`/${LOGIN}`} />
   return (
     <AntdLayout>

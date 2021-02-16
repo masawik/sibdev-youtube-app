@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react'
+import React, {ChangeEvent, useCallback, useEffect, useState} from 'react'
 import {Input, Popover} from "antd";
 import {HeartOutlined, HeartTwoTone} from "@ant-design/icons/lib";
 import styles from './Search.module.css'
@@ -8,6 +8,13 @@ import {TRootState} from "../../../../redux/rootReducer";
 import {onFavouritesModalOpen} from "../../../../redux/favouritesModal/favouritesModalActions";
 
 const HEARTH_ICON_COLOR = '#1390E5'
+
+const $savedSuffixPopoverContent = (
+  <div className={styles.popoverBox}>
+    <div className={styles.popoverText}>Поиск сохранён в разделе «Избранное»</div>
+    <Link to='/favourites'>Перейти в избранное</Link>
+  </div>
+)
 
 const Search: React.FC = () => {
   let history = useHistory()
@@ -23,25 +30,19 @@ const Search: React.FC = () => {
     setQuery(currentQuery)
   }, [currentQuery])
 
-  const submitHandler = () => {
+  const submitHandler = useCallback(() => {
     history.push(`/search?q=${query}`)
-  }
+  }, [history, query])
 
-  const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  const inputHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value)
-  }
+  }, [])
 
-  const onOpenModal = () => {
+  const onOpenModal = useCallback(() => {
     if (!currentQuery) return
     dispatch(onFavouritesModalOpen(currentQuery))
-  }
+  }, [currentQuery, dispatch])
 
-  const $savedSuffixPopoverContent = (
-    <div className={styles.popoverBox}>
-      <div className={styles.popoverText}>Поиск сохранён в разделе «Избранное»</div>
-      <Link to='/favourites'>Перейти в избранное</Link>
-    </div>
-  )
   const $suffix = (
     <Popover
       content={$savedSuffixPopoverContent}

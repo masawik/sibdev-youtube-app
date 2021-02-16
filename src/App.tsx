@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './globalCss/antdOverload.GLOBAL.css'
 import './globalCss/App.GLOBAL.css'
 import Layout from "./Components/Layout/Layout"
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import LoginPage from "./Components/Login/LoginPage/LoginPage"
 import {LOGIN} from "./constants";
 import {useDispatch} from "react-redux";
@@ -12,10 +12,10 @@ import {useAlert} from "./hooks/useAlert";
 const App: React.FC = () => {
   const dispatch = useDispatch()
   useAlert()
-  //todo пофиксить инициализацию так, чтобы роуты работали
   //todo обернуть функции в компонентах в useCallback
   //todo добавить анимации по возможности
   //todo убрать ошибки из консоли
+  //todo обработать ошибки unauthorized
   useEffect(() => {
     dispatch(onUserInit())
   }, [dispatch])
@@ -23,17 +23,8 @@ const App: React.FC = () => {
   return (
     <React.Fragment>
       <Switch>
-        <Route path={`/${LOGIN}`}>
-          <LoginPage/>
-        </Route>
-
-        <Route path='/'>
-          <Layout/>
-        </Route>
-
-        <Route path='*'>
-          <Redirect to='/'/>
-        </Route>
+        <Route path={`/${LOGIN}`} component={LoginPage}/>
+        <Route path='*' component={Layout}/>
       </Switch>
     </React.Fragment>
   )

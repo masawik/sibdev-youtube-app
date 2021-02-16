@@ -21,6 +21,7 @@ const VideoList: React.FC = () => {
   }, [viewMode])
 
   //todo добавить статистику
+  //todo добавить анимацию переключения между режимами отображения
   const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
     return (

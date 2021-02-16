@@ -13,6 +13,7 @@ const Favourites: React.FC = () => {
   let history = useHistory()
   const list = useSelector((state: TRootState) => state.favourites.items)
   const isFetching = useSelector((state: TRootState) => state.favourites.isFetching)
+
   const $list = list.map((i) => (
     <FavouritesItem
       key={i.id}

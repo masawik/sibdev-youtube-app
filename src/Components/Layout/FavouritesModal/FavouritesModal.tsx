@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {Button, Col, Form, Input, InputNumber, Modal, Row, Select, Slider} from "antd"
 import styles from './FavouriteModal.module.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -15,11 +15,19 @@ type TFormFields = {
   sort: TSearchOrder,
 }
 
+const $sortOptions = [
+  {value: 'relevance', description: 'по релевантности'},
+  {value: 'date', description: 'по времени'},
+  {value: 'rating', description: 'по рейтингу'},
+  {value: 'title', description: 'по названию'},
+  {value: 'viewCount', description: 'по просмотрам'},
+].map((i) => <Select.Option key={i.value} value={i.value}>{i.description}</Select.Option>)
+
 const FavouritesModal: React.FC = () => {
   const dispatch = useDispatch()
   const [form] = useForm<TFormFields>()
   const {query, isVisible, maxCount, isFetching, name, sort, recordId} = useSelector((state: TRootState) => state.favouritesModal)
-  const [maxCountValue, setMaxCountValue] = useState<number>(12)
+  const [maxCountValue, setMaxCountValue] = useState(12)
 
   useEffect(() => {
     if (isVisible) form.resetFields()
@@ -29,21 +37,21 @@ const FavouritesModal: React.FC = () => {
     setMaxCountValue(maxCount)
   }, [maxCount])
 
-  const onMaxCountChange = (value: number) => {
+  const onMaxCountChange = useCallback((value: number) => {
     if (!isNaN(value)) setMaxCountValue(value)
-  }
+  }, [])
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     dispatch(onFavouritesModalClose())
-  }
+  }, [dispatch])
 
-  const onSubmit = (val: TFormFields) => {
+  const onSubmit = useCallback((val: TFormFields) => {
     if (recordId) {
       dispatch(onFavouritesListEditRecord({...val, maxCount: maxCountValue, id: recordId}))
     } else {
       dispatch(onFavouritesListAddRecord({...val, maxCount: maxCountValue}))
     }
-  }
+  }, [dispatch, maxCountValue, recordId])
 
   const formInitialValues: TFormFields = {
     maxCount: maxCount || 12,
@@ -51,15 +59,6 @@ const FavouritesModal: React.FC = () => {
     query: query || "",
     sort: sort || "any"
   }
-
-  const $sortOptions = [
-    {value: 'relevance', description: 'по релевантности'},
-    {value: 'date', description: 'по времени'},
-    {value: 'rating', description: 'по рейтингу'},
-    {value: 'title', description: 'по названию'},
-    {value: 'viewCount', description: 'по просмотрам'},
-  ].map((i) => <Select.Option key={i.value} value={i.value}>{i.description}</Select.Option>)
-
   return (
     <Modal
       visible={isVisible}

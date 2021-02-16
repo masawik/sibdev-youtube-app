@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import styles from './LoginForm.module.css'
 import {Button, Form, Input, Row} from "antd";
 import {useDispatch, useSelector} from "react-redux";
@@ -21,16 +21,13 @@ const INPUT_VALIDATION_RULES = [
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch()
   const isFetching = useSelector((state: TRootState) => state.user.isFetching)
-  const [form] = Form.useForm<TLoginForm>()
-
-  const onFinish = (values: TLoginForm) => {
+  const onFinish = useCallback((values: TLoginForm) => {
     dispatch(onUserLogin({login: values[LOGIN], password: values[PASSWORD]}))
-  }
+  }, [dispatch])
 
   return (
     <Form
       onFinish={onFinish}
-      form={form}
       layout='vertical'
       requiredMark={false}
     >

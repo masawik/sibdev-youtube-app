@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import {Button, Layout, Row} from "antd"
 import {Menu} from "antd"
 import cn from 'classnames'
@@ -11,10 +11,9 @@ import {onUserLogout} from "../../../redux/user/userActions";
 const Header: React.FC = () => {
   const {pathname} = useLocation()
   const dispatch = useDispatch()
-
-  const logout = () => {
+  const logout = useCallback(() => {
     dispatch(onUserLogout())
-  }
+  }, [dispatch])
 
   return (
     <Layout.Header className={styles.header}>

@@ -36,6 +36,7 @@ export type TVideoItem = {
     liveBroadcastContent: string,
     publishTime: string
   },
+  views: number
 }
 
 type TYoutubeSearchResponse = {
