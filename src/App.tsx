@@ -12,10 +12,13 @@ import {useAlert} from "./hooks/useAlert";
 const App: React.FC = () => {
   const dispatch = useDispatch()
   useAlert()
-
+  //todo пофиксить инициализацию так, чтобы роуты работали
+  //todo обернуть функции в компонентах в useCallback
+  //todo добавить анимации по возможности
+  //todo убрать ошибки из консоли
   useEffect(() => {
     dispatch(onUserInit())
-  }, [])
+  }, [dispatch])
 
   return (
     <React.Fragment>

@@ -16,7 +16,7 @@ const SearchPage: React.FC = () => {
   useEffect(() => {
     if (!currentQuery) return
     dispatch(onSearch(currentQuery, 12))
-  }, [currentQuery])
+  }, [currentQuery, dispatch])
 
   // алиас чтоб строки влезали в экран
   const IDR = isReadyToShow

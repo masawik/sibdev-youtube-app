@@ -2,7 +2,6 @@ import {TUserLoginData} from "../user/userTypes";
 import {fakeServer} from "./fakeServer/fakeServer";
 
 export enum EUserApiErrors {
-  success = 0,
   userNotExist = 1,
   wrongPassword = 2,
   tokenInvalid = 3

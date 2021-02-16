@@ -8,10 +8,12 @@ import {
   IFavouritesItem
 } from "./favouritesTypes";
 import {CLEAR_ALL_STATES} from "../shared/sharedTypes";
+import {SEARCH_FETCHING_START} from "../search/searchTypes";
 
 const initialState = {
   isFetching: false as boolean,
-  items: [] as IFavouritesItem[]
+  items: [] as IFavouritesItem[],
+  isSavedMessageVisible: false as boolean
 }
 
 type TFavouritesState = typeof initialState
@@ -27,10 +29,12 @@ const favouritesReducer: Reducer<TFavouritesState, TFavouritesActions> = (state 
     case FAVOURITES_SET_LIST:
       return {...state, items: action.payload.favouritesList}
     case FAVOURITES_ADD_RECORD:
-      return {...state, items: [...state.items, action.payload.record]}
+      return {...state, items: [...state.items, action.payload.record], isSavedMessageVisible: true}
     case FAVOURITES_DELETE_RECORD:
       const filteredList = state.items.filter((i) => i.id !== action.payload.id)
       return {...state, items: filteredList}
+    case SEARCH_FETCHING_START:
+      return {...state, isSavedMessageVisible: false}
     default: return state
   }
 }

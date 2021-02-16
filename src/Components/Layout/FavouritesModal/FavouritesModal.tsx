@@ -23,7 +23,7 @@ const FavouritesModal: React.FC = () => {
 
   useEffect(() => {
     formInstance.resetFields()
-  }, [isVisible])
+  }, [formInstance, isVisible])
 
   useEffect(() => {
     setMaxCountValue(maxCount)

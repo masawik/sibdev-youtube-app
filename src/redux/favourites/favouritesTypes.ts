@@ -7,6 +7,7 @@ import {
   TFavouritesModalFetchingFinish,
   TFavouritesModalFetchingStart
 } from "../favouritesModal/favouritesModalTypes";
+import {TSearchFetchingStart} from "../search/searchTypes";
 
 export const FAVOURITES_FETCHING_START = 'FAVOURITES_FETCHING_START'
 export const FAVOURITES_FETCHING_FINISH = 'FAVOURITES_FETCHING_FINISH'
@@ -43,4 +44,5 @@ export type TFavouritesActions =
   | TFavouritesModalFetchingStart
   | TFavouritesModalFetchingFinish
   | TFavouritesModalClose
+  | TSearchFetchingStart
 export type TFavouritesThunk = ThunkAction<void, TRootState, unknown, TFavouritesActions>
