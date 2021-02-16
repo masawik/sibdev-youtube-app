@@ -1,0 +1,51 @@
+.card {
+    width: 245px!important;
+    flex-direction: column;
+}
+
+.card .preview {
+    height: 138px;
+    width: 245px;
+}
+
+.card .body {
+    margin-left: 0;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 3px;
+}
+
+.card .title {
+    margin-bottom: 8px;
+}
+
+.container {
+    display: flex;
+    width: 690px;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.preview {
+    transition-property: height, width;
+    transition-duration: .3s;
+    height: 88px;
+    width: 157px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.channelName,
+.views {
+    color: var(--text-muted);
+}

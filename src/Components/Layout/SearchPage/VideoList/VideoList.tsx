@@ -3,8 +3,7 @@ import {Button, Col, Row} from "antd";
 import cn from "classnames";
 import styles from './VideoList.module.css'
 import {AppstoreOutlined, UnorderedListOutlined} from "@ant-design/icons/lib";
-import VideoItemCard from "./VideoItemCard/VideoItemCard";
-import VideoItemList from "./VideoItemList/VideoItemList";
+import VideoItem from "./VideoItem/VideoItem";
 import {useSelector} from "react-redux";
 import {TRootState} from "../../../../redux/rootReducer";
 import {useLastViewMode} from "../../../../hooks/useVideoListLastViewMode";
@@ -20,9 +19,7 @@ const VideoList: React.FC = () => {
     localStorage.setItem('viewMode', viewMode)
   }, [viewMode])
 
-  //todo добавить анимацию переключения между режимами отображения
   //todo включать видео при клике
-  const VideoItemComponent = viewMode === "list" ? VideoItemList : VideoItemCard
   const $videoList = videos?.map((videoItem) => {
     const views = videoItem.views
     let viewsStr = String(views)
@@ -30,7 +27,8 @@ const VideoList: React.FC = () => {
     if (views >= 1000000) viewsStr = viewsStr.substr(0, viewsStr.length - 6) + ' млн.'
     return (
       <Col key={videoItem.id.videoId}>
-        <VideoItemComponent
+        <VideoItem
+          viewMode={viewMode}
           title={videoItem.snippet.title}
           views={viewsStr}
           channelName={videoItem.snippet.channelTitle}
