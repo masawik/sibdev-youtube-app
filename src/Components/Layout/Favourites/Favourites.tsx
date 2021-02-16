@@ -6,15 +6,17 @@ import {TRootState} from "../../../redux/rootReducer";
 import FavouritesItem from "./FavouritesItem/FavouritesItem";
 import {onFavouritesListDeleteRecord} from "../../../redux/favourites/favouritesActions";
 import {onFavouritesModalOpenEdit} from "../../../redux/favouritesModal/favouritesModalActions";
-//todo выполнять запрос при клике на запись
+import {useHistory} from "react-router-dom";
 
 const Favourites: React.FC = () => {
   const dispatch = useDispatch()
+  let history = useHistory()
   const list = useSelector((state: TRootState) => state.favourites.items)
   const isFetching = useSelector((state: TRootState) => state.favourites.isFetching)
   const $list = list.map((i) => (
     <FavouritesItem
       key={i.id}
+      onClick={() => history.push(`/search?q=${i.query}&sort=${i.sort}&maxCount=${i.maxCount}`)}
       onEdit={() => dispatch(onFavouritesModalOpenEdit(i.id))}
       onDelete={() => dispatch(onFavouritesListDeleteRecord(i.id))}
       name={i.name}
