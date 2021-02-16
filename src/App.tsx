@@ -12,8 +12,6 @@ import {useAlert} from "./hooks/useAlert";
 const App: React.FC = () => {
   const dispatch = useDispatch()
   useAlert()
-  //todo добавить анимации по возможности
-  //todo обработать ошибки unauthorized
   useEffect(() => {
     dispatch(onUserInit())
   }, [dispatch])

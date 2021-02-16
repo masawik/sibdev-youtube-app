@@ -1,10 +1,10 @@
 import axios from "axios"
 
-const YOUTUBE_API_KEY = 'AIzaSyD4oqFUtrWe9IFK0dnrOrhLTGwYeVjt2eM'
+const YOUTUBE_API_KEY = ''
 
 const instance = axios.create({
-  // baseURL: 'https://youtube.googleapis.com/youtube/v3/',
-  baseURL: 'http://127.0.0.1:5555/',
+  baseURL: 'https://youtube.googleapis.com/youtube/v3/',
+  // baseURL: 'http://127.0.0.1:5555/',
 })
 
 export type TSearchOrder = 'date' | 'rating' | 'relevance' | 'title' | 'viewCount' | ''
@@ -94,7 +94,7 @@ type TYoutubeSearchAPI = {
 }
 
 export const youtubeSearchAPI: TYoutubeSearchAPI = {
-  search: (query, maxResults = 5, order = '') => {
+  search: (query, maxResults = 12, order = '') => {
     query = encodeURIComponent(query)
     let searchParams = `&part=snippet&key=${YOUTUBE_API_KEY}&q=${query}&maxResults=${maxResults}&type=video`
     if (order) searchParams += `&order=${order}`

@@ -1,0 +1,26 @@
+.minified {
+    margin: 40px 0 25px;
+    min-height: 0!important;
+}
+
+.minified .titleBox {
+    margin-bottom: 12px;
+    justify-content: start;
+}
+
+.minified .title {
+    font-size: 28px;
+}
+
+.controlBox {
+    min-height: calc(100vh - 80px);
+}
+
+.titleBox {
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.title {
+    font-size: 36px;
+}
