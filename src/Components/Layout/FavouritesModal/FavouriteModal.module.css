@@ -14,3 +14,7 @@
 .firstSelectOption {
     color: var(--text-muted);
 }
+
+.labelMuted label {
+    color: var(--text-muted);
+}

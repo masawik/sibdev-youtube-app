@@ -19,7 +19,6 @@ const VideoList: React.FC = () => {
     localStorage.setItem('viewMode', viewMode)
   }, [viewMode])
 
-  //todo включать видео при клике
   const $videoList = videos?.map((videoItem) => {
     const views = videoItem.views
     let viewsStr = String(views)

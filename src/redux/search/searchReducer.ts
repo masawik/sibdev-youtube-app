@@ -23,7 +23,7 @@ type TSearchState = typeof initialState
 const searchReducer: Reducer<TSearchState, TSearchActions> = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_FETCHING_START:
-      return {...initialState, isFetching: true}
+      return {...initialState, isFetching: true, isReadyToShow: state.isReadyToShow}
     case CLEAR_ALL_STATES:
       return initialState
     case SEARCH_SET_QUERY:
