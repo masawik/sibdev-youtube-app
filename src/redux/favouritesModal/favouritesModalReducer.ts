@@ -1,5 +1,4 @@
 import {
-  EFavouritesModalModes,
   FAVOURITES_MODAL_CLOSE,
   FAVOURITES_MODAL_FETCHING_FINISH,
   FAVOURITES_MODAL_FETCHING_START,
@@ -18,7 +17,6 @@ const initialState = {
   name: null as null | string,
   sort: 'any' as TSearchOrder,
   maxCount: 12 as number,
-  mode: EFavouritesModalModes.create as EFavouritesModalModes,
 }
 
 export type TFavouritesModalState = typeof initialState
@@ -37,7 +35,7 @@ const favouritesModalReducer: Reducer<TFavouritesModalState, TFavouritesModalAct
       return initialState
     case FAVOURITES_MODAL_FILL_DATA:
       const {maxCount, name, sort, id} = action.payload
-      return {...state, maxCount, name, sort, id}
+      return {...state, maxCount, name, sort, recordId: id}
     default:
       return state
   }

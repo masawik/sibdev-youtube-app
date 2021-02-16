@@ -73,10 +73,10 @@ export const lsDB: TLsDB = {
 
   favouritesListEditRecord: (login, record) => {
     const favList: IFavouritesItem[] = lsDB.getFavouritesList(login)
-    favList.map((i) => {
+    const newList = favList.map((i) => {
       if (i.id === record.id) return record
       return i
     })
-    lsDB.favouritesListUpdate(login, favList)
+    lsDB.favouritesListUpdate(login, newList)
   }
 }

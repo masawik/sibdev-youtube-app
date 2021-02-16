@@ -4,12 +4,14 @@ import {
   FAVOURITES_FETCHING_FINISH,
   FAVOURITES_FETCHING_START,
   FAVOURITES_SET_LIST,
+  IFavouritesItem,
+  IFavouritesItemToServer,
   TFavouritesAddRecord,
   TFavouritesDeleteRecord,
   TFavouritesFetchingFinish,
   TFavouritesFetchingStart,
-  IFavouritesItem,
-  TFavouritesSetList, TFavouritesThunk, IFavouritesItemToServer
+  TFavouritesSetList,
+  TFavouritesThunk
 } from "./favouritesTypes";
 import {favouritesListAPI} from "../api/favouritesListAPI";
 import {onAlert} from "../shared/sharedActions";
@@ -63,6 +65,18 @@ export const onFavouritesListDeleteRecord = (id: string): TFavouritesThunk => as
   const result = await favouritesListAPI.deleteRecord(token, id)
   if (result.success) {
     dispatch(favouritesDeleteRecord(id))
+  } else dispatch(onAlert(result.message, 'error'))
+  dispatch(favouritesFetchingFinish())
+}
+
+export const onFavouritesListEditRecord = (record: IFavouritesItem): TFavouritesThunk => async (dispatch, getState) => {
+  dispatch(favouritesFetchingStart())
+  const token = getState().user.token
+  if (!token) return
+  const result = await favouritesListAPI.editRecord(token, record)
+  if (result.success) {
+    dispatch(onFavouritesModalClose())
+    return dispatch(onFavouritesListLoad())
   } else dispatch(onAlert(result.message, 'error'))
   dispatch(favouritesFetchingFinish())
 }

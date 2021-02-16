@@ -1,5 +1,4 @@
 import {Reducer} from "redux";
-import {TRootState} from "../rootReducer";
 import {
   FAVOURITES_ADD_RECORD, FAVOURITES_DELETE_RECORD,
   FAVOURITES_FETCHING_FINISH,

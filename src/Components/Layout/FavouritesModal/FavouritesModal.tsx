@@ -1,14 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {Button, Col, Form, FormInstance, Input, InputNumber, Modal, Row, Select, Slider} from "antd"
+import React, {useEffect, useState} from 'react'
+import {Button, Col, Form, Input, InputNumber, Modal, Row, Select, Slider} from "antd"
 import styles from './FavouriteModal.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {TRootState} from "../../../redux/rootReducer";
-import {EFavouritesModalModes} from "../../../redux/favouritesModal/favouritesModalTypes";
 import {onFavouritesModalClose} from '../../../redux/favouritesModal/favouritesModalActions'
 import {TSearchOrder} from "../../../redux/api/youtubeAPI";
-import {onFavouritesListAddRecord} from "../../../redux/favourites/favouritesActions";
+import {onFavouritesListAddRecord, onFavouritesListEditRecord} from "../../../redux/favourites/favouritesActions";
 import {useForm} from "antd/lib/form/Form";
-
 
 type TFormFields = {
   query: string,
@@ -19,13 +17,14 @@ type TFormFields = {
 
 const FavouritesModal: React.FC = () => {
   const dispatch = useDispatch()
-  const [form] = useForm<TFormFields>()
-  const {query, isVisible, maxCount, mode, isFetching, name, sort, recordId} = useSelector((state: TRootState) => state.favouritesModal)
+  const [formInstance] = useForm<TFormFields>()
+  const {query, isVisible, maxCount, isFetching, name, sort, recordId} = useSelector((state: TRootState) => state.favouritesModal)
   const [maxCountValue, setMaxCountValue] = useState<number>(12)
 
   useEffect(() => {
-    form.resetFields()
+    formInstance.resetFields()
   }, [isVisible])
+
   useEffect(() => {
     setMaxCountValue(maxCount)
   }, [maxCount])
@@ -39,7 +38,11 @@ const FavouritesModal: React.FC = () => {
   }
 
   const onSubmit = (val: TFormFields) => {
-    dispatch(onFavouritesListAddRecord({...val, maxCount: maxCountValue}))
+    if (recordId) {
+      dispatch(onFavouritesListEditRecord({...val, maxCount: maxCountValue, id: recordId}))
+    } else {
+      dispatch(onFavouritesListAddRecord({...val, maxCount: maxCountValue}))
+    }
   }
 
   const formInitialValues: TFormFields = {
@@ -67,7 +70,7 @@ const FavouritesModal: React.FC = () => {
       <Row className={styles.titleBox} justify='center'>
         <h1 className={styles.title}>
           {
-            mode === EFavouritesModalModes.create
+            recordId
               ? 'Сохранить запрос'
               : 'Изменить запрос'
           }
@@ -77,7 +80,7 @@ const FavouritesModal: React.FC = () => {
       <Form
         layout='vertical'
         onFinish={onSubmit}
-        form={form}
+        form={formInstance}
         initialValues={formInitialValues}
       >
         <Form.Item
@@ -87,7 +90,7 @@ const FavouritesModal: React.FC = () => {
           required={false}
         >
           <Input
-            disabled={mode === EFavouritesModalModes.create || isFetching}
+            disabled={!Boolean(recordId) || isFetching}
           />
         </Form.Item>
 

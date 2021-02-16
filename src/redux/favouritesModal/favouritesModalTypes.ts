@@ -9,11 +9,6 @@ export const FAVOURITES_MODAL_FETCHING_START = 'FAVOURITES_MODAL_FETCHING_START'
 export const FAVOURITES_MODAL_FETCHING_FINISH = 'FAVOURITES_MODAL_FETCHING_FINISH'
 export const FAVOURITES_MODAL_FILL_DATA = 'FAVOURITES_MODAL_FILL_DATA'
 
-export enum EFavouritesModalModes {
-  create = 0,
-  edit = 1
-}
-
 export type TFavouritesModalOpen = { type: typeof FAVOURITES_MODAL_OPEN, payload: {query: string} }
 export type TFavouritesModalClose = { type: typeof FAVOURITES_MODAL_CLOSE }
 export type TFavouritesModalFetchingStart = { type: typeof FAVOURITES_MODAL_FETCHING_START }
