@@ -14,7 +14,7 @@ import {
   TFavouritesThunk
 } from "./favouritesTypes";
 import {favouritesListAPI} from "../api/favouritesListAPI";
-import {onAlert} from "../shared/sharedActions";
+import {onAlert, sharedClearAllStates} from "../shared/sharedActions";
 import {
   favouritesModalFetchingFinish,
   favouritesModalFetchingStart,
@@ -23,35 +23,43 @@ import {
 
 const favouritesFetchingStart = (): TFavouritesFetchingStart => ({type: FAVOURITES_FETCHING_START})
 const favouritesFetchingFinish = (): TFavouritesFetchingFinish => ({type: FAVOURITES_FETCHING_FINISH})
-const favouritesSetList = (favouritesList: IFavouritesItem[]): TFavouritesSetList => ({type: FAVOURITES_SET_LIST , payload: {favouritesList}})
-const favouritesAddRecord = (record: IFavouritesItem): TFavouritesAddRecord => ({type: FAVOURITES_ADD_RECORD , payload: {record}})
-const favouritesDeleteRecord = (id: string): TFavouritesDeleteRecord => ({type: FAVOURITES_DELETE_RECORD , payload: {id}})
+const favouritesSetList = (favouritesList: IFavouritesItem[]): TFavouritesSetList => ({
+  type: FAVOURITES_SET_LIST,
+  payload: {favouritesList}
+})
+const favouritesAddRecord = (record: IFavouritesItem): TFavouritesAddRecord => ({
+  type: FAVOURITES_ADD_RECORD,
+  payload: {record}
+})
+const favouritesDeleteRecord = (id: string): TFavouritesDeleteRecord => ({
+  type: FAVOURITES_DELETE_RECORD,
+  payload: {id}
+})
 
 export const onFavouritesListLoad = (): TFavouritesThunk => async (dispatch, getState) => {
   dispatch(favouritesFetchingStart())
   const token = getState().user.token
-  if (token) {
-    const result = await favouritesListAPI.getList(token)
-    if (!result.success) {
-      dispatch(onAlert(result.message, 'error'))
-    }
-    else {
-      dispatch(favouritesSetList(result.data))
-    }
+  if (!token) return dispatch(sharedClearAllStates())
+  const result = await favouritesListAPI.getList(token)
+  if (!result.success) {
+    dispatch(onAlert(result.message, 'error'))
+  } else {
+    dispatch(favouritesSetList(result.data))
   }
   dispatch(favouritesFetchingFinish())
 }
-//todo сделать обработчик общих ошибок
+
 export const onFavouritesListAddRecord = (record: IFavouritesItemToServer): TFavouritesThunk => async (dispatch, getState) => {
   dispatch(favouritesModalFetchingStart())
   dispatch(favouritesFetchingStart())
   const token = getState().user.token
-  if (!token) return
+  if (!token) return dispatch(sharedClearAllStates())
   const result = await favouritesListAPI.addRecord(token, record)
   if (result.success) {
     const fullRecord: IFavouritesItem = {...record, id: result.data.id}
     dispatch(favouritesAddRecord(fullRecord))
   } else dispatch(onAlert(result.message, 'error'))
+
   dispatch(favouritesModalFetchingFinish())
   dispatch(favouritesFetchingFinish())
   dispatch(onFavouritesModalClose())
@@ -61,7 +69,7 @@ export const onFavouritesListAddRecord = (record: IFavouritesItemToServer): TFav
 export const onFavouritesListDeleteRecord = (id: string): TFavouritesThunk => async (dispatch, getState) => {
   dispatch(favouritesFetchingStart())
   const token = getState().user.token
-  if (!token) return
+  if (!token) return dispatch(sharedClearAllStates())
   const result = await favouritesListAPI.deleteRecord(token, id)
   if (result.success) {
     dispatch(favouritesDeleteRecord(id))
@@ -72,7 +80,7 @@ export const onFavouritesListDeleteRecord = (id: string): TFavouritesThunk => as
 export const onFavouritesListEditRecord = (record: IFavouritesItem): TFavouritesThunk => async (dispatch, getState) => {
   dispatch(favouritesFetchingStart())
   const token = getState().user.token
-  if (!token) return
+  if (!token) return dispatch(sharedClearAllStates())
   const result = await favouritesListAPI.editRecord(token, record)
   if (result.success) {
     dispatch(onFavouritesModalClose())

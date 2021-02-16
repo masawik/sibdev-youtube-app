@@ -33,6 +33,7 @@ export const onUserLogin = (loginData: TUserLoginData): TUserThunk => async disp
     const token = result.data
     localStorageUtils.setToken(token)
     dispatch(userSetToken(token))
+    dispatch(onFavouritesListLoad())
   } else {
     dispatch(onAlert(result.message, 'error'))
   }
