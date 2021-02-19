@@ -4,7 +4,7 @@
 
 - логин: root
 - пароль: toor
-- 
+
 задеплоеное на github pages приложение отличается тем, что использует
 ```javascript
 <HashRouter>
@@ -29,7 +29,9 @@
   * axios
 
 для соответствия макету перегрузил некоторые стили antd. [antdOverload.GLOBAL.css](https://github.com/masawik/sibdev-youtube-app/blob/main/src/globalCss/antdOverload.GLOBAL.css)
+
 ---
+
 ### как заводить:
 - положить свой [YouTube API KEY](https://console.developers.google.com/apis/) в константу YOUTUBE_API_KEY в файле src > redux > api > [youtubeAPI.ts](https://github.com/masawik/sibdev-youtube-app/blob/main/src/redux/api/youtubeAPI.ts)
 - запустить сервер
@@ -38,4 +40,5 @@ npm run start
 ```
 
 p.s. пофиксил некоторые баги уже после дедлайна. исправленный вариант в [соседней ветке](https://github.com/masawik/sibdev-youtube-app/tree/afterDeadline)
+</br>
 p.p.s. до сегодняшнего дня (19.02.2021) в репозитории отсутствовал файл react-app-env.d.ts изза чего typeScript ругался на css модули и не компилировал проект 😬😬😬 положил файл в основную ветку после дедлайна.
