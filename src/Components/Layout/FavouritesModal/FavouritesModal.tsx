@@ -60,6 +60,7 @@ const FavouritesModal: React.FC = () => {
     query: query || "",
     sort: sort || ""
   }
+
   return (
     <Modal
       visible={isVisible}

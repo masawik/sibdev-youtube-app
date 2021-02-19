@@ -20,8 +20,10 @@ const FORM_BOX_LAYOUT: ColProps = {
 }
 
 const LoginPage: React.FC = () => {
-  const authToken = useToken()
-  if (authToken) return <Redirect to={`/`} />
+
+  const [token] = useToken()
+  if (token) return <Redirect to={`/`}/>
+
   return (
     <Row
       justify='center'

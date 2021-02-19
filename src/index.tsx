@@ -1,7 +1,6 @@
 import 'antd/dist/antd.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from 'react-router-dom'
 import App from './App'
 import { Provider } from 'react-redux'
 import {applyMiddleware, createStore} from "redux";
@@ -13,9 +12,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
       <App />
-    </BrowserRouter>
   </Provider>
 )
 
