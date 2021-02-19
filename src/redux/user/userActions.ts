@@ -7,11 +7,11 @@ import {
   USER_FETCHING_FINISH,
   USER_FETCHING_START,
   USER_SET_TOKEN,
-} from "./userTypes";
-import {userAPI} from "../api/userAPI";
-import {localStorageUtils} from "../localStorageUtils";
-import {onAlert, sharedClearAllStates} from "../shared/sharedActions";
-import {onFavouritesListLoad} from "../favourites/favouritesActions";
+} from './userTypes'
+import {userAPI} from '../api/userAPI'
+import {localStorageUtils} from '../localStorageUtils'
+import {onAlert, sharedClearAllStates} from '../shared/sharedActions'
+import {onFavouritesListLoad} from '../favourites/favouritesActions'
 
 const userFetchingStart = (): TUserFetchingStart => ({type: USER_FETCHING_START})
 const userFetchingFinish = (): TUserFetchingFinish => ({type: USER_FETCHING_FINISH})

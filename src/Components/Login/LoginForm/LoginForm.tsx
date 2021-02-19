@@ -1,9 +1,9 @@
 import React, {useCallback} from 'react'
 import styles from './LoginForm.module.css'
-import {Button, Form, Input, Row} from "antd";
-import {useDispatch, useSelector} from "react-redux";
-import {TRootState} from "../../../redux/rootReducer";
-import {onUserLogin} from "../../../redux/user/userActions";
+import {Button, Form, Input, Row} from 'antd'
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../redux/rootReducer'
+import {onUserLogin} from '../../../redux/user/userActions'
 
 const LOGIN = 'LOGIN'
 const PASSWORD = 'PASSWORD'

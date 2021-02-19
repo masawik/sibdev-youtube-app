@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Col, Row} from "antd";
-import cn from "classnames";
+import {Button, Col, Row} from 'antd'
+import cn from 'classnames'
 import styles from './VideoList.module.css'
-import {AppstoreOutlined, UnorderedListOutlined} from "@ant-design/icons/lib";
-import VideoItem from "./VideoItem/VideoItem";
-import {useSelector} from "react-redux";
-import {TRootState} from "../../../../redux/rootReducer";
-import {useLastViewMode} from "../../../../hooks/useVideoListLastViewMode";
+import {AppstoreOutlined, UnorderedListOutlined} from '@ant-design/icons/lib'
+import VideoItem from './VideoItem/VideoItem'
+import {useSelector} from 'react-redux'
+import {TRootState} from '../../../../redux/rootReducer'
+import {useLastViewMode} from '../../../../hooks/useVideoListLastViewMode'
 
 const VideoList: React.FC = () => {
   const lastViewMode = useLastViewMode()
@@ -62,7 +62,7 @@ const VideoList: React.FC = () => {
             />
           </Button>
           <Button
-            onClick={() => setViewMode("card")}
+            onClick={() => setViewMode('card')}
             className={styles.btn}
             type='link'
           >

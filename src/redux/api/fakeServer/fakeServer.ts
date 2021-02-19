@@ -1,9 +1,9 @@
-import {TUserLoginData} from "../../user/userTypes";
+import {TUserLoginData} from '../../user/userTypes'
 import users_JSON from './users.json'
-import {utils} from "../utils";
-import {lsDB} from "./localStorageAsDB";
-import {EUserApiErrors, TResponse, TUserResponseError, TUserResponseSuccess} from "../userAPI";
-import {IFavouritesItem, IFavouritesItemToServer} from "../../favourites/favouritesTypes";
+import {utils} from '../utils'
+import {lsDB} from './localStorageAsDB'
+import {EUserApiErrors, TResponse, TUserResponseError, TUserResponseSuccess} from '../userAPI'
+import {IFavouritesItem, IFavouritesItemToServer} from '../../favourites/favouritesTypes'
 
 const users_DB: { [index: string]: string } = users_JSON
 

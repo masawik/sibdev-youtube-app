@@ -12,14 +12,14 @@ import {
   TFavouritesFetchingStart,
   TFavouritesSetList,
   TFavouritesThunk
-} from "./favouritesTypes";
-import {favouritesListAPI} from "../api/favouritesListAPI";
-import {onAlert, sharedClearAllStates} from "../shared/sharedActions";
+} from './favouritesTypes'
+import {favouritesListAPI} from '../api/favouritesListAPI'
+import {onAlert, sharedClearAllStates} from '../shared/sharedActions'
 import {
   favouritesModalFetchingFinish,
   favouritesModalFetchingStart,
   onFavouritesModalClose
-} from "../favouritesModal/favouritesModalActions";
+} from '../favouritesModal/favouritesModalActions'
 
 const favouritesFetchingStart = (): TFavouritesFetchingStart => ({type: FAVOURITES_FETCHING_START})
 const favouritesFetchingFinish = (): TFavouritesFetchingFinish => ({type: FAVOURITES_FETCHING_FINISH})

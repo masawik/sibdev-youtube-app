@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react'
-import {Col, Row} from "antd"
-import Search from "./Search/Search"
-import VideoList from "./VideoList/VideoList"
-import {useQuery} from "../../../hooks/useQuery"
-import {useDispatch, useSelector} from "react-redux"
-import {TRootState} from "../../../redux/rootReducer"
-import {onSearch} from "../../../redux/search/searchActions"
-import {TSearchOrder} from "../../../redux/api/youtubeAPI"
+import {Col, Row} from 'antd'
+import Search from './Search/Search'
+import VideoList from './VideoList/VideoList'
+import {useQuery} from '../../../hooks/useQuery'
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../redux/rootReducer'
+import {onSearch} from '../../../redux/search/searchActions'
+import {TSearchOrder} from '../../../redux/api/youtubeAPI'
 import styles from './SearchPage.module.css'
-import cn from "classnames"
-import {TITLE_BASE} from "../../../constants";
+import cn from 'classnames'
+import {TITLE_BASE} from '../../../constants'
 
 const SearchPage: React.FC = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const searchParams = useQuery()
   const currentQuery = searchParams.get('q')
   const sort = (searchParams.get('sort') as TSearchOrder) || ''

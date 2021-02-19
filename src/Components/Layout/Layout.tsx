@@ -1,10 +1,10 @@
 import React from 'react'
-import {Layout as AntdLayout} from "antd"
-import Header from "./Header/Header"
-import FavouritesModal from "./FavouritesModal/FavouritesModal"
-import {Redirect} from "react-router-dom"
-import {LOGIN} from "../../constants"
-import {useToken} from "../../hooks/useToken"
+import {Layout as AntdLayout} from 'antd'
+import Header from './Header/Header'
+import FavouritesModal from './FavouritesModal/FavouritesModal'
+import {Redirect} from 'react-router-dom'
+import {LOGIN} from '../../constants'
+import {useToken} from '../../hooks/useToken'
 
 const {Content} = AntdLayout
 

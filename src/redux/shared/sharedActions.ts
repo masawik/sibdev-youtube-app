@@ -6,7 +6,7 @@ import {
   TSharedClearAlertMessage,
   TSharedClearAllStates,
   TSharedSetAlertMessage, TSharedThunk
-} from "./sharedTypes";
+} from './sharedTypes'
 
 export const sharedClearAllStates = (): TSharedClearAllStates => ({type: CLEAR_ALL_STATES})
 const sharedShowErrorMessage = (message: string, type: TSharedAlertTypes, duration: number): TSharedSetAlertMessage => ({

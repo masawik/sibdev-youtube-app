@@ -1,9 +1,9 @@
-import {combineReducers} from "redux";
-import user from "./user/userReducer";
-import search from "./search/searchReducer";
-import alert from "./alert/alertReducer";
-import favourites from "./favourites/favouritesReducer";
-import favouritesModal from "./favouritesModal/favouritesModalReducer";
+import {combineReducers} from 'redux'
+import user from './user/userReducer'
+import search from './search/searchReducer'
+import alert from './alert/alertReducer'
+import favourites from './favourites/favouritesReducer'
+import favouritesModal from './favouritesModal/favouritesModalReducer'
 
 const rootReducer = combineReducers({
   user,

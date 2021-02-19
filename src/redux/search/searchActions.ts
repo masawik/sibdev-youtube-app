@@ -12,9 +12,9 @@ import {
   TSearchSetTotalResults,
   TSearchSetVideos,
   TSearchThunk
-} from "./searchTypes";
-import {TSearchOrder, youtubeSearchAPI, IVideoItem} from "../api/youtubeAPI";
-import {onAlert} from "../shared/sharedActions";
+} from './searchTypes'
+import {TSearchOrder, youtubeSearchAPI, IVideoItem} from '../api/youtubeAPI'
+import {onAlert} from '../shared/sharedActions'
 
 const searchFetchingStart = (): TSearchFetchingStart => ({type: SEARCH_FETCHING_START})
 const searchFetchingFinish = (): TSearchFetchingFinish => ({type: SEARCH_FETCHING_FINISH})

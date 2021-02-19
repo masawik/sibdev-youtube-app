@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 import styles from './LoginPage.module.css'
 import LOGO from '../../sharedImgs/logo.svg'
-import {Col, ColProps,Row} from "antd";
-import LoginForm from "../LoginForm/LoginForm";
-import {Redirect} from "react-router-dom";
-import {useToken} from "../../../hooks/useToken";
-import {TITLE_BASE} from "../../../constants";
+import {Col, ColProps,Row} from 'antd'
+import LoginForm from '../LoginForm/LoginForm'
+import {Redirect} from 'react-router-dom'
+import {useToken} from '../../../hooks/useToken'
+import {TITLE_BASE} from '../../../constants'
 
 const CONTAINER_LAYOUT: ColProps = {
   xxl: 7,
@@ -27,7 +27,7 @@ const LoginPage: React.FC = () => {
   }, [])
 
   const [token] = useToken()
-  if (token) return <Redirect to={`/`}/>
+  if (token) return <Redirect to={'/'}/>
 
   return (
     <Row

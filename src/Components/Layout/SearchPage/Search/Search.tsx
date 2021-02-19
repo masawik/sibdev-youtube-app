@@ -1,11 +1,11 @@
 import React, {ChangeEvent, useCallback, useEffect, useState} from 'react'
-import {Input, Popover} from "antd";
-import {HeartOutlined, HeartTwoTone} from "@ant-design/icons/lib";
+import {Input, Popover} from 'antd'
+import {HeartOutlined, HeartTwoTone} from '@ant-design/icons/lib'
 import styles from './Search.module.css'
-import {Link, useHistory} from 'react-router-dom';
-import {useDispatch, useSelector} from "react-redux";
-import {TRootState} from "../../../../redux/rootReducer";
-import {onFavouritesModalOpen} from "../../../../redux/favouritesModal/favouritesModalActions";
+import {Link, useHistory} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../../redux/rootReducer'
+import {onFavouritesModalOpen} from '../../../../redux/favouritesModal/favouritesModalActions'
 
 const HEARTH_ICON_COLOR = '#1390E5'
 
@@ -17,7 +17,7 @@ const $savedSuffixPopoverContent = (
 )
 
 const Search: React.FC = () => {
-  let history = useHistory()
+  const history = useHistory()
   const dispatch = useDispatch()
   const isFetching = useSelector((state: TRootState) => state.search.isFetching)
   const currentQuery = useSelector((state: TRootState) => state.search.query)
@@ -53,8 +53,8 @@ const Search: React.FC = () => {
         isSavedMessageVisible
           ? <HeartTwoTone style={{color: HEARTH_ICON_COLOR}}/>
           : isReadyToShow
-          ? <HeartOutlined onClick={onOpenModal} style={{color: HEARTH_ICON_COLOR}}/>
-          : null
+            ? <HeartOutlined onClick={onOpenModal} style={{color: HEARTH_ICON_COLOR}}/>
+            : null
       }
     </Popover>
   )

@@ -1,6 +1,6 @@
-import {ThunkAction} from "redux-thunk";
-import {TRootState} from "../rootReducer";
-import {TSharedActions} from "../shared/sharedTypes";
+import {ThunkAction} from 'redux-thunk'
+import {TRootState} from '../rootReducer'
+import {TSharedActions} from '../shared/sharedTypes'
 
 export const USER_FETCHING_START = 'USER_FETCHING_START'
 export const USER_FETCHING_FINISH = 'USER_FETCHING_FINISH'

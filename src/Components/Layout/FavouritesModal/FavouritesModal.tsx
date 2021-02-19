@@ -1,13 +1,13 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import {Button, Col, Form, Input, InputNumber, Modal, Row, Select, Slider} from "antd"
+import {Button, Col, Form, Input, InputNumber, Modal, Row, Select, Slider} from 'antd'
 import styles from './FavouriteModal.module.css'
-import {useDispatch, useSelector} from "react-redux"
-import {TRootState} from "../../../redux/rootReducer"
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../redux/rootReducer'
 import {onFavouritesModalClose} from '../../../redux/favouritesModal/favouritesModalActions'
-import {TSearchOrder} from "../../../redux/api/youtubeAPI"
-import {onFavouritesListAddRecord, onFavouritesListEditRecord} from "../../../redux/favourites/favouritesActions"
-import {useForm} from "antd/lib/form/Form"
-import cn from "classnames"
+import {TSearchOrder} from '../../../redux/api/youtubeAPI'
+import {onFavouritesListAddRecord, onFavouritesListEditRecord} from '../../../redux/favourites/favouritesActions'
+import {useForm} from 'antd/lib/form/Form'
+import cn from 'classnames'
 
 type TFormFields = {
   query: string,
@@ -56,9 +56,9 @@ const FavouritesModal: React.FC = () => {
 
   const formInitialValues: TFormFields = {
     maxCount: maxCount || 12,
-    name: name || "",
-    query: query || "",
-    sort: sort || ""
+    name: name || '',
+    query: query || '',
+    sort: sort || ''
   }
 
   return (
@@ -93,7 +93,7 @@ const FavouritesModal: React.FC = () => {
           required={false}
         >
           <Input
-            disabled={!Boolean(recordId) || isFetching}
+            disabled={!recordId || isFetching}
           />
         </Form.Item>
 

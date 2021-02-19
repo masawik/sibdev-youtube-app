@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './VideoItem.module.css'
-import cn from "classnames";
+import cn from 'classnames'
 
 export type TVideoItemProps = {
   previewURL: string,

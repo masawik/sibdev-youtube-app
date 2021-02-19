@@ -1,9 +1,9 @@
-import {localStorageUtils} from "../redux/localStorageUtils"
-import {useSelector} from "react-redux"
-import {TRootState} from "../redux/rootReducer"
-import {useCallback} from "react"
+import {localStorageUtils} from '../redux/localStorageUtils'
+import {useSelector} from 'react-redux'
+import {TRootState} from '../redux/rootReducer'
+import {useCallback} from 'react'
 
-export const useToken = () => {
+export const useToken = (): Array<null | string> => {
   const storeToken = useSelector((state: TRootState) => state.user.token)
 
   const getToken = useCallback(() => {

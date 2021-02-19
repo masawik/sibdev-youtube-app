@@ -1,7 +1,7 @@
-import {TSharedActions} from "../shared/sharedTypes"
-import {TSearchOrder} from "../api/youtubeAPI"
-import {ThunkAction} from "redux-thunk"
-import {TRootState} from "../rootReducer"
+import {TSharedActions} from '../shared/sharedTypes'
+import {TSearchOrder} from '../api/youtubeAPI'
+import {ThunkAction} from 'redux-thunk'
+import {TRootState} from '../rootReducer'
 
 export const FAVOURITES_MODAL_OPEN = 'FAVOURITES_MODAL_OPEN'
 export const FAVOURITES_MODAL_CLOSE = 'FAVOURITES_MODAL_CLOSE'
