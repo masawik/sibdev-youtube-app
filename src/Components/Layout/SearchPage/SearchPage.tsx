@@ -9,14 +9,23 @@ import {onSearch} from "../../../redux/search/searchActions"
 import {TSearchOrder} from "../../../redux/api/youtubeAPI"
 import styles from './SearchPage.module.css'
 import cn from "classnames"
+import {TITLE_BASE} from "../../../constants";
 
 const SearchPage: React.FC = () => {
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
   const searchParams = useQuery()
   const currentQuery = searchParams.get('q')
   const sort = (searchParams.get('sort') as TSearchOrder) || ''
   const maxCount: number = Number(searchParams.get('maxCount')) || 12
   const isReadyToShow = useSelector((state: TRootState) => state.search.isReadyToShow)
+
+  useEffect(() => {
+    if (currentQuery) {
+      document.title = `${TITLE_BASE} - поиск: ${currentQuery}`
+    } else {
+      document.title = `${TITLE_BASE} - Поиск`
+    }
+  }, [currentQuery])
 
   useEffect(() => {
     if (!currentQuery) return
