@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/sibdev-youtube-app/static/css/main.32002f15.chunk.css",
-    "main.js": "/sibdev-youtube-app/static/js/main.460c03a2.chunk.js",
-    "main.js.map": "/sibdev-youtube-app/static/js/main.460c03a2.chunk.js.map",
+    "main.css": "/sibdev-youtube-app/static/css/main.15ce17f8.chunk.css",
+    "main.js": "/sibdev-youtube-app/static/js/main.31631a3d.chunk.js",
+    "main.js.map": "/sibdev-youtube-app/static/js/main.31631a3d.chunk.js.map",
     "runtime-main.js": "/sibdev-youtube-app/static/js/runtime-main.2cf7d689.js",
     "runtime-main.js.map": "/sibdev-youtube-app/static/js/runtime-main.2cf7d689.js.map",
     "static/css/2.4ee63354.chunk.css": "/sibdev-youtube-app/static/css/2.4ee63354.chunk.css",
-    "static/js/2.dc97fa2d.chunk.js": "/sibdev-youtube-app/static/js/2.dc97fa2d.chunk.js",
-    "static/js/2.dc97fa2d.chunk.js.map": "/sibdev-youtube-app/static/js/2.dc97fa2d.chunk.js.map",
+    "static/js/2.62800b01.chunk.js": "/sibdev-youtube-app/static/js/2.62800b01.chunk.js",
+    "static/js/2.62800b01.chunk.js.map": "/sibdev-youtube-app/static/js/2.62800b01.chunk.js.map",
     "index.html": "/sibdev-youtube-app/index.html",
     "static/css/2.4ee63354.chunk.css.map": "/sibdev-youtube-app/static/css/2.4ee63354.chunk.css.map",
-    "static/css/main.32002f15.chunk.css.map": "/sibdev-youtube-app/static/css/main.32002f15.chunk.css.map",
-    "static/js/2.dc97fa2d.chunk.js.LICENSE.txt": "/sibdev-youtube-app/static/js/2.dc97fa2d.chunk.js.LICENSE.txt",
+    "static/css/main.15ce17f8.chunk.css.map": "/sibdev-youtube-app/static/css/main.15ce17f8.chunk.css.map",
+    "static/js/2.62800b01.chunk.js.LICENSE.txt": "/sibdev-youtube-app/static/js/2.62800b01.chunk.js.LICENSE.txt",
     "static/media/logo.380272e2.svg": "/sibdev-youtube-app/static/media/logo.380272e2.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.2cf7d689.js",
     "static/css/2.4ee63354.chunk.css",
-    "static/js/2.dc97fa2d.chunk.js",
-    "static/css/main.32002f15.chunk.css",
-    "static/js/main.460c03a2.chunk.js"
+    "static/js/2.62800b01.chunk.js",
+    "static/css/main.15ce17f8.chunk.css",
+    "static/js/main.31631a3d.chunk.js"
   ]
 }
