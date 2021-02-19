@@ -5,6 +5,8 @@
 - логин: root
 - пароль: toor
 
+[DEMO](https://masawik.github.io/sibdev-youtube-app/)
+
 Использовано:
   * React
   * redux
