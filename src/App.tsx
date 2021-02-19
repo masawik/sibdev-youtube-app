@@ -11,9 +11,6 @@ import {onUserInit} from "./redux/user/userActions";
 import Favourites from "./Components/Layout/Favourites/Favourites";
 import SearchPage from "./Components/Layout/SearchPage/SearchPage";
 
-//todo изменить basename при деплое
-const URL_BASENAME = ''
-
 const App: React.FC = () => {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -22,7 +19,7 @@ const App: React.FC = () => {
   useAlert()
 
   return (
-    <BrowserRouter basename={`/${URL_BASENAME}`}>
+    <BrowserRouter>
       <React.Fragment>
         <Switch>
           <Route path={`/${LOGIN}`}>
