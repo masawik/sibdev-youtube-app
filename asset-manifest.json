@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sibdev-youtube-app/static/css/main.15ce17f8.chunk.css",
-    "main.js": "/sibdev-youtube-app/static/js/main.0d7f54ea.chunk.js",
-    "main.js.map": "/sibdev-youtube-app/static/js/main.0d7f54ea.chunk.js.map",
+    "main.js": "/sibdev-youtube-app/static/js/main.0c80c49b.chunk.js",
+    "main.js.map": "/sibdev-youtube-app/static/js/main.0c80c49b.chunk.js.map",
     "runtime-main.js": "/sibdev-youtube-app/static/js/runtime-main.2cf7d689.js",
     "runtime-main.js.map": "/sibdev-youtube-app/static/js/runtime-main.2cf7d689.js.map",
     "static/css/2.4ee63354.chunk.css": "/sibdev-youtube-app/static/css/2.4ee63354.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.4ee63354.chunk.css",
     "static/js/2.62800b01.chunk.js",
     "static/css/main.15ce17f8.chunk.css",
-    "static/js/main.0d7f54ea.chunk.js"
+    "static/js/main.0c80c49b.chunk.js"
   ]
 }
