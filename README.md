@@ -1,5 +1,9 @@
 # тестовое задание для SibDev
 
+пользователи лежат в redux > api > fakeServer > users.json
+логин: root
+пароль: toor
+
 Использовано:
   * React
   * redux
