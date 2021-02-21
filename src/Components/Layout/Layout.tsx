@@ -11,7 +11,6 @@ const {Content} = AntdLayout
 const Layout: React.FC = ({children}) => {
   const [token] = useToken()
   if (!token) return <Redirect to={`/${LOGIN}`}/>
-
   return (
     <AntdLayout>
       <Header/>
