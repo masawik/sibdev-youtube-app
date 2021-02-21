@@ -9,12 +9,14 @@ import {onFavouritesListAddRecord, onFavouritesListEditRecord} from '../../../re
 import {useForm} from 'antd/lib/form/Form'
 import cn from 'classnames'
 
-type TFormFields = {
-  query: string,
-  maxCount: number,
-  name: string,
-  sort: TSearchOrder,
+const formEmptyInitialValues = {
+  query: '',
+  maxCount: 12,
+  name: '',
+  sort: '' as TSearchOrder,
 }
+
+type TFormFields = typeof formEmptyInitialValues
 
 const $sortOptions = [
   {value: 'relevance', description: 'по релевантности'},
@@ -29,10 +31,18 @@ const FavouritesModal: React.FC = () => {
   const [form] = useForm<TFormFields>()
   const {query, isVisible, maxCount, isFetching, name, sort, recordId} = useSelector((state: TRootState) => state.favouritesModal)
   const [maxCountValue, setMaxCountValue] = useState(12)
+  const [formInitialValues, setFormInitialValues] = useState<TFormFields>(formEmptyInitialValues)
 
   useEffect(() => {
-    if (isVisible) form.resetFields()
-  }, [form, isVisible])
+    setFormInitialValues({
+      maxCount: maxCount || 12,
+      name: name || query || '',
+      query: query || '',
+      sort: sort || ''
+    })
+  }, [query, maxCount, name, sort])
+
+  useEffect(() => form.resetFields(), [formInitialValues])
 
   useEffect(() => {
     setMaxCountValue(maxCount)
@@ -53,13 +63,6 @@ const FavouritesModal: React.FC = () => {
       dispatch(onFavouritesListAddRecord({...val, maxCount: maxCountValue}))
     }
   }, [dispatch, maxCountValue, recordId])
-
-  const formInitialValues: TFormFields = {
-    maxCount: maxCount || 12,
-    name: name || '',
-    query: query || '',
-    sort: sort || ''
-  }
 
   return (
     <Modal
