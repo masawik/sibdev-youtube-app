@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const YOUTUBE_API_KEY = ''
+const YOUTUBE_API_KEY = 'AIzaSyD4oqFUtrWe9IFK0dnrOrhLTGwYeVjt2eM'
 
 const instance = axios.create({
   baseURL: 'https://youtube.googleapis.com/youtube/v3/',

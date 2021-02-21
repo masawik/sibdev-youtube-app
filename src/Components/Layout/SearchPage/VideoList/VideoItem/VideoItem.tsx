@@ -7,14 +7,15 @@ export type TVideoItemProps = {
   title: string,
   channelName: string,
   views: string,
-  viewMode: 'card' | 'list'
+  viewMode: 'card' | 'list',
+  onClick: () => void
 }
 
-const VideoItem: React.FC<TVideoItemProps> = ({views, channelName, title, previewURL, viewMode}) => {
+const VideoItem: React.FC<TVideoItemProps> = ({views, channelName, title, previewURL, viewMode, onClick}) => {
   const isCardMode = viewMode === 'card'
   if (isCardMode && title.length >= 60) title = title.substr(0, 57) + '...'
   return (
-    <div className={cn(styles.container, 'ant-card-hoverable', {[styles.card]: isCardMode})}>
+    <div onClick={onClick} className={cn(styles.container, 'ant-card-hoverable', {[styles.card]: isCardMode})}>
       <img className={styles.preview} src={previewURL} alt={title}/>
 
       <div className={styles.body}>

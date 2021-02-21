@@ -4,13 +4,15 @@ import search from './search/searchReducer'
 import alert from './alert/alertReducer'
 import favourites from './favourites/favouritesReducer'
 import favouritesModal from './favouritesModal/favouritesModalReducer'
+import videoDrawer from './videoDrawer/videoDrawerReducer'
 
 const rootReducer = combineReducers({
   user,
   search,
   alert,
   favourites,
-  favouritesModal
+  favouritesModal,
+  videoDrawer
 })
 
 export type TRootState = ReturnType<typeof rootReducer>

@@ -4,11 +4,13 @@ import cn from 'classnames'
 import styles from './VideoList.module.css'
 import {AppstoreOutlined, UnorderedListOutlined} from '@ant-design/icons/lib'
 import VideoItem from './VideoItem/VideoItem'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {TRootState} from '../../../../redux/rootReducer'
 import {useLastViewMode} from '../../../../hooks/useVideoListLastViewMode'
+import {onVideoDrawerOpen} from '../../../../redux/videoDrawer/videoDrawerActions'
 
 const VideoList: React.FC = () => {
+  const dispatch = useDispatch()
   const lastViewMode = useLastViewMode()
   const [viewMode, setViewMode] = useState<'list' | 'card'>(lastViewMode || 'card')
   const videos = useSelector((state: TRootState) => state.search.videos)
@@ -27,6 +29,7 @@ const VideoList: React.FC = () => {
     return (
       <Col key={videoItem.id.videoId}>
         <VideoItem
+          onClick={() => dispatch(onVideoDrawerOpen(videoItem.id.videoId))}
           viewMode={viewMode}
           title={videoItem.snippet.title}
           views={viewsStr}

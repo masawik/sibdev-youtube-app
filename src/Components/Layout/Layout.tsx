@@ -5,6 +5,7 @@ import FavouritesModal from './FavouritesModal/FavouritesModal'
 import {Redirect} from 'react-router-dom'
 import {LOGIN} from '../../constants'
 import {useToken} from '../../hooks/useToken'
+import VideoDrawer from './videoDrawer/videoDrawer'
 
 const {Content} = AntdLayout
 
@@ -20,6 +21,7 @@ const Layout: React.FC = ({children}) => {
           {children}
         </div>
         <FavouritesModal/>
+        <VideoDrawer/>
       </Content>
     </AntdLayout>
   )
