@@ -5,7 +5,7 @@
 - логин: root
 - пароль: toor
 
-задеплоеное на github pages приложение отличается тем, что использует
+задеплоеное на github pages приложение отличается тем, что взято из ветки [afterDeadline](https://github.com/masawik/sibdev-youtube-app/tree/afterDeadline) а так же использует
 ```javascript
 <HashRouter>
 ```
@@ -13,6 +13,7 @@
 ```javascript
 <BrowserRouter>
 ```
+
 ---
 ## Суть задания
 + [ТЗ](https://github.com/masawik/sibdev-youtube-app/blob/main/%D1%82%D0%B7.md)
