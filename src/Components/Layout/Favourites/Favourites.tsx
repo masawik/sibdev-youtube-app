@@ -37,7 +37,7 @@ const Favourites: React.FC = () => {
 
       <Spin spinning={isFetching} tip="Loading...">
         <ul className={styles.list}>
-          {list.length === 0 ? <Row justify='center'>список пуст :(</Row> : null}
+          {!list.length && <Row justify='center'>список пуст :(</Row>}
           {$list}
         </ul>
       </Spin>

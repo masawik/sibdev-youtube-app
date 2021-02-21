@@ -29,6 +29,12 @@ h1, ul, li {
     margin: 0 auto;
 }
 
+@media all and (max-width: 1040px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
 li {
     list-style: none;
 }

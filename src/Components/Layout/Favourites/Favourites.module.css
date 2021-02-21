@@ -32,6 +32,12 @@
     opacity: 0;
 }
 
+@media all and (max-width: 768px) {
+    .buttons {
+        opacity: .5;
+    }
+}
+
 .buttons button {
     font-size: 14px;
     padding: 0 20px;

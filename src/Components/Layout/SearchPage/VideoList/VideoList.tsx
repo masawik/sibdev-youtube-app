@@ -42,7 +42,7 @@ const VideoList: React.FC = () => {
 
   return (
     <>
-      <Row align='middle' justify='space-between'>
+      <Row align='middle' justify='space-between' >
         <Col>
           <span className={styles.listTitle}>
             Видео по запросу <strong>«{query}»</strong>
@@ -78,7 +78,12 @@ const VideoList: React.FC = () => {
           </Button>
         </Col>
       </Row>
-      <Row gutter={[20, 32]}>{$videoList}</Row>
+      <Row
+        justify={viewMode === 'card' ? 'center' : 'start'}
+        gutter={[20, 32]}
+      >
+        {$videoList}
+      </Row>
     </>
   )
 }
