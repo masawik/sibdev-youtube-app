@@ -1,5 +1,5 @@
-import {TUserLoginData} from "../user/userTypes";
-import {fakeServer} from "./fakeServer/fakeServer";
+import {TUserLoginData} from '../user/userTypes'
+import {fakeServer} from './fakeServer/fakeServer'
 
 export enum EUserApiErrors {
   userNotExist = 1,

@@ -1,6 +1,6 @@
-import {IFavouritesItem, IFavouritesItemToServer} from "../favourites/favouritesTypes";
-import {fakeServer} from "./fakeServer/fakeServer";
-import {TResponse} from "./userAPI";
+import {IFavouritesItem, IFavouritesItemToServer} from '../favourites/favouritesTypes'
+import {fakeServer} from './fakeServer/fakeServer'
+import {TResponse} from './userAPI'
 
 type TFavouritesListAPI = {
   getList: (token: string) => Promise<TResponse<IFavouritesItem[]>>,

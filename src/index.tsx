@@ -1,21 +1,18 @@
 import 'antd/dist/antd.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from 'react-router-dom'
 import App from './App'
 import { Provider } from 'react-redux'
-import {applyMiddleware, createStore} from "redux";
-import thunk from 'redux-thunk';
+import {applyMiddleware, createStore} from 'redux'
+import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import rootReducer from "./redux/rootReducer";
+import rootReducer from './redux/rootReducer'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>
 )
 

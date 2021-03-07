@@ -1,4 +1,4 @@
-import {IFavouritesItem} from "../../favourites/favouritesTypes";
+import {IFavouritesItem} from '../../favourites/favouritesTypes'
 const TOKEN_BY_LOGIN = 'TOKEN_BY_LOGIN'
 const DB_FAVOURITES_LISTS = 'DB_FAVOURITES_LISTS'
 

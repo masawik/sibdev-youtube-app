@@ -1,5 +1,5 @@
-import {ThunkAction} from "redux-thunk";
-import {TRootState} from "../rootReducer";
+import {ThunkAction} from 'redux-thunk'
+import {TRootState} from '../rootReducer'
 
 export const CLEAR_ALL_STATES = 'CLEAR_ALL_STATES'
 export const SET_ALERT_MESSAGE = 'SET_ALERT_MESSAGE'

@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
-import styles from "../Favourites.module.css";
-import {Button} from "antd";
+import styles from '../Favourites.module.css'
+import {Button} from 'antd'
 
 type TFavouritesItemProps = {
   name: string,
@@ -19,20 +19,20 @@ const FavouritesItem: React.FC<TFavouritesItemProps> = ({name, onDelete, onEdit,
     <li ref={liRef} onClick={onClickHandler} className={styles.listItem}>
       {name}
       <span className={styles.buttons}>
-            <Button
-              onClick={onEdit}
-              type='link'
-            >
+        <Button
+          onClick={onEdit}
+          type='link'
+        >
             Изменить
-          </Button>
-          <Button
-            onClick={onDelete}
-            type='link'
-            danger
-          >
+        </Button>
+        <Button
+          onClick={onDelete}
+          type='link'
+          danger
+        >
             Удалить
-          </Button>
-          </span>
+        </Button>
+      </span>
     </li>
   )
 }

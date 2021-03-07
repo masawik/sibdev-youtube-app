@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Col, Row} from "antd";
-import cn from "classnames";
+import {Button, Col, Row} from 'antd'
+import cn from 'classnames'
 import styles from './VideoList.module.css'
-import {AppstoreOutlined, UnorderedListOutlined} from "@ant-design/icons/lib";
-import VideoItem from "./VideoItem/VideoItem";
-import {useSelector} from "react-redux";
-import {TRootState} from "../../../../redux/rootReducer";
-import {useLastViewMode} from "../../../../hooks/useVideoListLastViewMode";
+import {AppstoreOutlined, UnorderedListOutlined} from '@ant-design/icons/lib'
+import VideoItem from './VideoItem/VideoItem'
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../../redux/rootReducer'
+import {useLastViewMode} from '../../../../hooks/useVideoListLastViewMode'
+import {onVideoDrawerOpen} from '../../../../redux/videoDrawer/videoDrawerActions'
 
 const VideoList: React.FC = () => {
+  const dispatch = useDispatch()
   const lastViewMode = useLastViewMode()
   const [viewMode, setViewMode] = useState<'list' | 'card'>(lastViewMode || 'card')
   const videos = useSelector((state: TRootState) => state.search.videos)
@@ -27,6 +29,7 @@ const VideoList: React.FC = () => {
     return (
       <Col key={videoItem.id.videoId}>
         <VideoItem
+          onClick={() => dispatch(onVideoDrawerOpen(videoItem.id.videoId))}
           viewMode={viewMode}
           title={videoItem.snippet.title}
           views={viewsStr}
@@ -39,7 +42,7 @@ const VideoList: React.FC = () => {
 
   return (
     <>
-      <Row align='middle' justify='space-between'>
+      <Row align='middle' justify='space-between' >
         <Col>
           <span className={styles.listTitle}>
             Видео по запросу <strong>«{query}»</strong>
@@ -62,7 +65,7 @@ const VideoList: React.FC = () => {
             />
           </Button>
           <Button
-            onClick={() => setViewMode("card")}
+            onClick={() => setViewMode('card')}
             className={styles.btn}
             type='link'
           >
@@ -75,7 +78,12 @@ const VideoList: React.FC = () => {
           </Button>
         </Col>
       </Row>
-      <Row gutter={[20, 32]}>{$videoList}</Row>
+      <Row
+        justify={viewMode === 'card' ? 'center' : 'start'}
+        gutter={[20, 32]}
+      >
+        {$videoList}
+      </Row>
     </>
   )
 }

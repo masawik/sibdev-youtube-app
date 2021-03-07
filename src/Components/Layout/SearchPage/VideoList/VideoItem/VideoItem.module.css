@@ -25,6 +25,18 @@
     cursor: pointer;
 }
 
+@media all and (max-width: 720px) {
+    .container {
+        width: 550px;
+    }
+}
+
+@media all and (max-width: 580px) {
+    .container {
+        width: 400px;
+    }
+}
+
 .body {
     display: flex;
     flex-direction: column;

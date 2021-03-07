@@ -1,13 +1,13 @@
-import {TSharedActions} from "../shared/sharedTypes"
-import {TSearchOrder} from "../api/youtubeAPI"
-import {ThunkAction} from "redux-thunk"
-import {TRootState} from "../rootReducer"
+import {TSharedActions} from '../shared/sharedTypes'
+import {TSearchOrder} from '../api/youtubeAPI'
+import {ThunkAction} from 'redux-thunk'
+import {TRootState} from '../rootReducer'
 import {
   TFavouritesModalClose,
   TFavouritesModalFetchingFinish,
   TFavouritesModalFetchingStart
-} from "../favouritesModal/favouritesModalTypes";
-import {TSearchFetchingStart} from "../search/searchTypes";
+} from '../favouritesModal/favouritesModalTypes'
+import {TSearchFetchingStart} from '../search/searchTypes'
 
 export const FAVOURITES_FETCHING_START = 'FAVOURITES_FETCHING_START'
 export const FAVOURITES_FETCHING_FINISH = 'FAVOURITES_FETCHING_FINISH'

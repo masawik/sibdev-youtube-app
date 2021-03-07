@@ -1,7 +1,7 @@
-import {IVideoItem} from "../api/youtubeAPI";
-import {ThunkAction} from "redux-thunk";
-import {TRootState} from "../rootReducer";
-import {TSharedActions} from "../shared/sharedTypes";
+import {IVideoItem} from '../api/youtubeAPI'
+import {ThunkAction} from 'redux-thunk'
+import {TRootState} from '../rootReducer'
+import {TSharedActions} from '../shared/sharedTypes'
 
 export const SEARCH_FETCHING_START = 'SEARCH_FETCHING_START'
 export const SEARCH_FETCHING_FINISH = 'SEARCH_FETCHING_FINISH'

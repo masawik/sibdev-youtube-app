@@ -1,14 +1,25 @@
 import React, {useEffect} from 'react'
-import {Col, Row} from "antd"
-import Search from "./Search/Search"
-import VideoList from "./VideoList/VideoList"
-import {useQuery} from "../../../hooks/useQuery"
-import {useDispatch, useSelector} from "react-redux"
-import {TRootState} from "../../../redux/rootReducer"
-import {onSearch} from "../../../redux/search/searchActions"
-import {TSearchOrder} from "../../../redux/api/youtubeAPI"
+import {Col, ColProps, Row} from 'antd'
+import Search from './Search/Search'
+import VideoList from './VideoList/VideoList'
+import {useQuery} from '../../../hooks/useQuery'
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../redux/rootReducer'
+import {onSearch} from '../../../redux/search/searchActions'
+import {TSearchOrder} from '../../../redux/api/youtubeAPI'
 import styles from './SearchPage.module.css'
-import cn from "classnames"
+import cn from 'classnames'
+import {TITLE_BASE} from '../../../constants'
+
+const searchColSpanWide: ColProps = {
+  xs: 24
+}
+
+const searchColSpanMinified: ColProps = {
+  lg: 12,
+  md: 16,
+  xs: 20
+}
 
 const SearchPage: React.FC = () => {
   const dispatch = useDispatch()
@@ -19,15 +30,23 @@ const SearchPage: React.FC = () => {
   const isReadyToShow = useSelector((state: TRootState) => state.search.isReadyToShow)
 
   useEffect(() => {
+    if (currentQuery) {
+      document.title = `${TITLE_BASE} - поиск: ${currentQuery}`
+    } else {
+      document.title = `${TITLE_BASE} - Поиск`
+    }
+  }, [currentQuery])
+
+  useEffect(() => {
     if (!currentQuery) return
     dispatch(onSearch(currentQuery, maxCount, sort))
   }, [currentQuery, dispatch, maxCount, sort])
 
-  const searchColSpan = isReadyToShow ? 24 : 12
+  const searchColSpan = isReadyToShow ? searchColSpanWide : searchColSpanMinified
   return (
     <>
       <Row className={cn(styles.controlBox, {[styles.minified]: isReadyToShow})} justify='center' align='middle'>
-        <Col span={searchColSpan}>
+        <Col {...searchColSpan}>
           <Row className={styles.titleBox} justify='center'>
             <h1 className={styles.title}>Поиск видео</h1>
           </Row>

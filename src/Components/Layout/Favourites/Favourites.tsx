@@ -1,18 +1,23 @@
-import React from 'react'
-import {Row, Spin} from "antd"
+import React, {useEffect} from 'react'
+import {Row, Spin} from 'antd'
 import styles from './Favourites.module.css'
-import {useDispatch, useSelector} from "react-redux";
-import {TRootState} from "../../../redux/rootReducer";
-import FavouritesItem from "./FavouritesItem/FavouritesItem";
-import {onFavouritesListDeleteRecord} from "../../../redux/favourites/favouritesActions";
-import {onFavouritesModalOpenEdit} from "../../../redux/favouritesModal/favouritesModalActions";
-import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux'
+import {TRootState} from '../../../redux/rootReducer'
+import FavouritesItem from './FavouritesItem/FavouritesItem'
+import {onFavouritesListDeleteRecord} from '../../../redux/favourites/favouritesActions'
+import {onFavouritesModalOpenEdit} from '../../../redux/favouritesModal/favouritesModalActions'
+import {useHistory} from 'react-router-dom'
+import {TITLE_BASE} from '../../../constants'
 
 const Favourites: React.FC = () => {
+  useEffect(() => {
+    document.title = `${TITLE_BASE} - избранное`
+  }, [])
   const dispatch = useDispatch()
-  let history = useHistory()
+  const history = useHistory()
   const list = useSelector((state: TRootState) => state.favourites.items)
   const isFetching = useSelector((state: TRootState) => state.favourites.isFetching)
+
 
   const $list = list.map((i) => (
     <FavouritesItem
@@ -32,7 +37,7 @@ const Favourites: React.FC = () => {
 
       <Spin spinning={isFetching} tip="Loading...">
         <ul className={styles.list}>
-          {list.length === 0 ? <Row justify='center'>список пуст :(</Row> : null}
+          {!list.length && <Row justify='center'>список пуст :(</Row>}
           {$list}
         </ul>
       </Spin>

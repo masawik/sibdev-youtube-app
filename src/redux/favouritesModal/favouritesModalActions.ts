@@ -10,8 +10,8 @@ import {
   TFavouritesModalFillData,
   TFavouritesModalOpen,
   TFavouritesModalThunk
-} from "./favouritesModalTypes";
-import {TSearchOrder} from "../api/youtubeAPI";
+} from './favouritesModalTypes'
+import {TSearchOrder} from '../api/youtubeAPI'
 
 
 export const favouritesModalFetchingStart = (): TFavouritesModalFetchingStart => ({type: FAVOURITES_MODAL_FETCHING_START})

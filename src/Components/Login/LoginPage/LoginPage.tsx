@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styles from './LoginPage.module.css'
 import LOGO from '../../sharedImgs/logo.svg'
-import {Col, ColProps,Row} from "antd";
-import LoginForm from "../LoginForm/LoginForm";
-import {Redirect} from "react-router-dom";
-import {useToken} from "../../../hooks/useToken";
+import {Col, ColProps,Row} from 'antd'
+import LoginForm from '../LoginForm/LoginForm'
+import {Redirect} from 'react-router-dom'
+import {useToken} from '../../../hooks/useToken'
+import {TITLE_BASE} from '../../../constants'
 
 const CONTAINER_LAYOUT: ColProps = {
   xxl: 7,
@@ -20,8 +21,14 @@ const FORM_BOX_LAYOUT: ColProps = {
 }
 
 const LoginPage: React.FC = () => {
-  const authToken = useToken()
-  if (authToken) return <Redirect to={`/`} />
+
+  useEffect(() => {
+    document.title = `${TITLE_BASE} - вход`
+  }, [])
+
+  const [token] = useToken()
+  if (token) return <Redirect to={'/'}/>
+
   return (
     <Row
       justify='center'
