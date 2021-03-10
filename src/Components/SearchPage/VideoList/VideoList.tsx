@@ -5,9 +5,9 @@ import styles from './VideoList.module.css'
 import {AppstoreOutlined, UnorderedListOutlined} from '@ant-design/icons/lib'
 import VideoItem from './VideoItem/VideoItem'
 import {useDispatch, useSelector} from 'react-redux'
-import {TRootState} from '../../../../redux/rootReducer'
-import {useLastViewMode} from '../../../../hooks/useVideoListLastViewMode'
-import {onVideoDrawerOpen} from '../../../../redux/videoDrawer/videoDrawerActions'
+import {TRootState} from '../../../redux/rootReducer'
+import {useLastViewMode} from '../../../hooks/useVideoListLastViewMode'
+import {onVideoDrawerOpen} from '../../../redux/videoDrawer/videoDrawerActions'
 
 const VideoList: React.FC = () => {
   const dispatch = useDispatch()

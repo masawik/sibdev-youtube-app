@@ -3,13 +3,13 @@ import './globalCss/antdOverload.GLOBAL.css'
 import './globalCss/App.GLOBAL.css'
 import Layout from './Components/Layout/Layout'
 import {Switch, Route, BrowserRouter, Redirect} from 'react-router-dom'
-import LoginPage from './Components/Login/LoginPage/LoginPage'
+import LoginPage from './Components/LoginPage/LoginPage'
 import {FAVOURITES, LOGIN, SEARCH} from './constants'
 import {useAlert} from './hooks/useAlert'
 import {useDispatch} from 'react-redux'
 import {onUserInit} from './redux/user/userActions'
-import Favourites from './Components/Layout/Favourites/Favourites'
-import SearchPage from './Components/Layout/SearchPage/SearchPage'
+import Favourites from './Components/Favourites/Favourites'
+import SearchPage from './Components/SearchPage/SearchPage'
 
 const App: React.FC = () => {
   const dispatch = useDispatch()

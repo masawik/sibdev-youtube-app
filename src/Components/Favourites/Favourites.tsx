@@ -2,12 +2,12 @@ import React, {useEffect} from 'react'
 import {Row, Spin} from 'antd'
 import styles from './Favourites.module.css'
 import {useDispatch, useSelector} from 'react-redux'
-import {TRootState} from '../../../redux/rootReducer'
+import {TRootState} from '../../redux/rootReducer'
 import FavouritesItem from './FavouritesItem/FavouritesItem'
-import {onFavouritesListDeleteRecord} from '../../../redux/favourites/favouritesActions'
-import {onFavouritesModalOpenEdit} from '../../../redux/favouritesModal/favouritesModalActions'
+import {onFavouritesListDeleteRecord} from '../../redux/favourites/favouritesActions'
+import {onFavouritesModalOpenEdit} from '../../redux/favouritesModal/favouritesModalActions'
 import {useHistory} from 'react-router-dom'
-import {TITLE_BASE} from '../../../constants'
+import {TITLE_BASE} from '../../constants'
 
 const Favourites: React.FC = () => {
   useEffect(() => {

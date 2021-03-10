@@ -1,8 +1,8 @@
 import React from 'react'
 import {Drawer} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
-import {TRootState} from '../../../redux/rootReducer'
-import {onVideoDrawerClose} from '../../../redux/videoDrawer/videoDrawerActions'
+import {TRootState} from '../../redux/rootReducer'
+import {onVideoDrawerClose} from '../../redux/videoDrawer/videoDrawerActions'
 
 const VideoDrawer: React.FC = () => {
   const dispatch = useDispatch()

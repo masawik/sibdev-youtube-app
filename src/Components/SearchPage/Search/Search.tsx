@@ -4,8 +4,8 @@ import {HeartOutlined, HeartTwoTone} from '@ant-design/icons/lib'
 import styles from './Search.module.css'
 import {Link, useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {TRootState} from '../../../../redux/rootReducer'
-import {onFavouritesModalOpen} from '../../../../redux/favouritesModal/favouritesModalActions'
+import {TRootState} from '../../../redux/rootReducer'
+import {onFavouritesModalOpen} from '../../../redux/favouritesModal/favouritesModalActions'
 
 const HEARTH_ICON_COLOR = '#1390E5'
 
